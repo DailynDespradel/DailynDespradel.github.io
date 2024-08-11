@@ -71,7 +71,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/headset.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/headset1.png" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -135,14 +135,16 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 d-flex align-items-center">
-                        <img src="assets/img/portfolio/me.jpg" alt="About Me" class="img-fluid me-3" style="max-width: 250px;">
+                    <div class="col-lg-4 d-flex align-items-start">
+                        <img src="assets/img/portfolio/me.jpg" alt="About Me" class="img-fluid" style="max-width: 350px; margin-right: 10px;">
                     </div>
                     <div class="col-lg-8">
-                        <p class="lead">My name is Dailyn Despradel, and as of 2024, I am a third-year Ph.D. student in the Mechanical Engineering Department at Carnegie Mellon University (CMU). I work alongside Dr. Douglas Weber in the Neuromechatronics Lab. My research focuses on understanding the physiological aspects of digitized interactions, particularly within virtual reality (VR) and extended reality (XR) environments.</p>
-                        <p class="lead">As an Afro-Latina, I am deeply committed to ensuring representation within VR and XR environments. I strive to develop inclusive and diverse experiences that resonate with a wide range of users. In my free time, I animate and teach middle and high school students how to animate. I have organized events to educate the CMU community about Black experiences through VR and have participated in mentorship initiatives to foster a supportive network among CMU graduate students.</p>
+                        <p class="lead" style="margin-top: 0;">My name is Dailyn Despradel, and as of 2024, I am a third-year Ph.D. student in the Mechanical Engineering Department at Carnegie Mellon University (CMU). I work alongside Dr. Douglas Weber in the Neuromechatronics Lab. My research focuses on understanding the physiological aspects of digitized interactions, particularly within virtual reality (VR) and extended reality (XR) environments.</p>
+                        <p class="lead" style="margin-top: 0;">As an Afro-Latina, I am deeply committed to ensuring representation within VR and XR environments. I strive to develop inclusive and diverse experiences that resonate with a wide range of users. In my free time, I animate and teach middle and high school students how to animate. I have organized events to educate the CMU community about Black experiences through VR and have participated in mentorship initiatives to foster a supportive network among CMU graduate students.</p>
                     </div>
                 </div>
+
+
                 <!-- About Section Button-->
             </div>
         </section>  
@@ -273,35 +275,26 @@
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            2215 John Daniel Drive
-                            <br />
-                            Clark, MO 65243
-                        </p>
-                    </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
-                        </p>
+                        <!-- Instagram Icon (replacing Facebook) -->
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/dailyn26/?hl=en" target="_blank">
+                            <i class="fab fa-fw fa-instagram"></i>
+                        </a>
+                        <!-- Twitter Icon -->
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/DailynDespradel" target="_blank">
+                            <i class="fab fa-fw fa-twitter"></i>
+                        </a>
+                        <!-- LinkedIn Icon -->
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/dailyn-despradel" target="_blank">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
+
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
@@ -345,7 +338,9 @@
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0">
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -358,10 +353,18 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
+                                    <video class="img-fluid rounded mb-5" controls>
+                                        <source src="assets/img/Videos/how-do-you-see-the-world.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4" style="text-align: justify;">
+                                        Our project, undertaken by Dailyn Despradel in collaboration with Muzhe Wu and Zixin Yang, aimed to enhance understanding of visual impairments through immersive simulation. We designed an interactive learning experience to educate those with normal vision about the challenges faced by individuals with cataracts, glaucoma, and color blindness. Participants navigated through simulated environments—living room, kitchen, and basement—each designed to replicate the visual obstacles associated with these conditions. Tasks in these environments were carefully crafted based on research to offer a genuine experience of the difficulties encountered in daily life due to these impairments.
+                                    </p>
+                                    <p class="mb-4" style="text-align: justify;">
+
+                                        In the living room simulation, users experienced cataracts through various everyday tasks, including reading and using household devices. The kitchen environment simulated color blindness, challenging users with tasks like identifying ripe fruits and cooking while relying on color perception. The basement scenario replicated glaucoma's restricted vision through tasks requiring object counting and comparison. After these immersive experiences, participants engaged in a debriefing session, gaining deeper insights into the impairments, their causes, treatments, and impacts. Postprocessing techniques, including depth of field adjustments and color grading, were employed to accurately simulate the visual conditions, enhancing the educational value and fostering empathy and inclusivity among participants.
+                                    </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -373,6 +376,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Portfolio Modal 3-->
         <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -441,7 +445,9 @@
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0">
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -454,10 +460,19 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                                    <!-- Portfolio Modal - Video-->
+                                    <video class="img-fluid rounded mb-5" controls>
+                                        <source src="assets/img/Videos/NeurmechanicsProject.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <!-- Portfolio Modal - Video-->
+                                    <video class="img-fluid rounded mb-5" controls>
+                                        <source src="assets/img/Videos/PhysicalInteraction.mov" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -469,6 +484,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Portfolio Modal 6-->
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
             <div class="modal-dialog modal-xl">
