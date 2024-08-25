@@ -170,7 +170,7 @@
                             <img class="img-fluid" src="assets/img/Outreach/Bio2023.jpg" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 2-->
+                    <!-- outreach Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="Outreach-item mx-auto" data-bs-toggle="modal" data-bs-target="#outreachModal2">
                             <div class="outreach-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -585,10 +585,7 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        <!-- Outreach Modals-->
+
         <!-- Outreach Modal 1 -->
         <div class="Outreach-modal modal fade" id="outreachModal1" tabindex="-1" aria-labelledby="outreachModal1" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -600,8 +597,172 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
                                     <h2 class="outreach-modal-title text-secondary text-uppercase mb-0">CMU Biomechanics Day Outreach Event 2023 - Biomechanics of Hand Rigging and Animation</h2>
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <div class="position-relative">
+                                        <img id="outreachmodalImage1" class="img-fluid rounded mb-5" src="assets/img/Outreach/Biomechanics2023Pic1.png" alt="..." />
+                                        <button id="prevBtn" class="position-absolute top-50 start-0 translate-middle-y btn btn-light" onclick="changeImage(-1, 'outreachmodalImage1')" style="left: 10px; z-index: 10;">
+                                            <i class="fas fa-chevron-left fa-fw"></i>
+                                        </button>
+                                        <button id="nextBtn" class="position-absolute top-50 end-0 translate-middle-y btn btn-light" onclick="changeImage(1, 'outreachmodalImage1')" style="right: 10px; z-index: 10;">
+                                            <i class="fas fa-chevron-right fa-fw"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Outreach Modal 1 (TEXT)-->
+                                    <p class="mb-4" style="text-align: justify;">
+                                    The 2023 National Biomechanics Day at CMU is an annual, in-person event that introduces biomechanics to high school and middle school students, as well as their teachers. Each year, a team of PhD students organizes interactive sessions featuring various biomechanics topics, allowing participants to engage in hands-on activities and demonstrations.
+                                    </p>
+                                
+                                    <p class="mb-4" style="text-align: justify;">
+                                    This year, I was one of the PhD students leading a session, with the support of Prakarsh Yadav. My focus was on teaching students how a deep understanding of biomechanics is crucial for creating realistic animations, and how biomechanics plays a significant role in popular films, especially Pixar movies. Inspired by an exceptional developer's work <a href="https://www.youtube.com/playlist?list=PL_y4lrhAHyEbO_Ioh8H-ip0jDL7qcXq3Z" target="_blank">(link to his/her work)</a>, I guided students in animating "Thing" from the show Wednesday. "Thing" is a fictional character, a disembodied hand that, through specific hand mechanics, conveys emotions and actions we typically associate with a person. For example, when "Thing" is angry, it snaps its fingers on the floor, signaling its frustration without the need for words—just movement.
+                                    </p>
+                                    <p class="mb-4" style="text-align: justify;">
+                                    Students were tasked with animating "Thing" as it moves across the screen, similar to the example shown in the GIF below:
+                                    </p>
+                                    
+                                    <p class="mb-4" style="text-align: justify;">
+                                    By sharing my passion for biomechanics and animation, I aim to inspire these young students to explore the fascinating intersection of science and creativity, encouraging them to pursue similar paths. My involvement in events like National Biomechanics Day reflects my commitment to fostering curiosity and innovation within my community.
+                                    For more details, visit <a href="https://biomechday.github.io/sessions/hand-rigging-and-animation" target="_blank">Biomechanics Day Event Link</a>.
+                                    </p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i> Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const images1 = [
+                'assets/img/Outreach/Biomechanics2023Pic1.png',
+                'assets/img/Outreach/Biomechanics2023Pic5.png',
+                'assets/img/Outreach/Biomechanics2023Pic3.png',
+                'assets/img/Outreach/Biomechanics2023Pic4.png',
+                'assets/img/Outreach/Biomechanics2023Pic2.png',
+                'assets/img/Outreach/Biomechanics2023Pic6.png'
+            ];
+
+            let currentIndex1 = 0;
+
+            function changeImage(direction, imageId) {
+                currentIndex1 += direction;
+
+                if (currentIndex1 >= images1.length) {
+                    currentIndex1 = 0;
+                } else if (currentIndex1 < 0) {
+                    currentIndex1 = images1.length - 1;
+                }
+
+                document.getElementById(imageId).src = images1[currentIndex1];
+            }
+        </script>
+        <!-- Outreach Modal 2 -->
+        <div class="Outreach-modal modal fade" id="outreachModal2" tabindex="-1" aria-labelledby="outreachModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h2 class="outreach-modal-title text-secondary text-uppercase mb-0">CMU Biomechanics Day Outreach Event 2024 - Biomechanics of An Animated Character</h2>
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <div class="position-relative">
+                                        <img id="outreachmodalImage2" class="img-fluid rounded mb-5" src="assets/img/Outreach/Biomechanics2024Pic1.png" alt="..." />
+                                        <button id="prevBtn2" class="position-absolute top-50 start-0 translate-middle-y btn btn-light" onclick="changeImage2(-1, 'outreachmodalImage2')" style="left: 10px; z-index: 10;">
+                                            <i class="fas fa-chevron-left fa-fw"></i>
+                                        </button>
+                                        <button id="nextBtn2" class="position-absolute top-50 end-0 translate-middle-y btn btn-light" onclick="changeImage2(1, 'outreachmodalImage2')" style="right: 10px; z-index: 10;">
+                                            <i class="fas fa-chevron-right fa-fw"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Outreach Modal 2 (TEXT)-->
+                                    <p class="mb-4" style="text-align: justify;">
+                                    The 2024 National Biomechanics Day at CMU is an annual, in-person event that introduces biomechanics to high school and middle school students, as well as their teachers. Each year, a team of PhD students organizes interactive sessions featuring various biomechanics topics, allowing participants to engage in hands-on activities and demonstrations.
+                                    </p>
+                                
+                                    <p class="mb-4" style="text-align: justify;">
+                                    This year, I was one of the PhD students leading a session, with the support of Prakarsh Yadav and Lauren Parola. My focus was on teaching students how a deep understanding of biomechanics is crucial for creating realistic animations, and how biomechanics plays a significant role in popular films, especially Pixar movies. 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        Inspired by an exceptional developer's work <a href="https://www.youtube.com/playlist?list=PL_y4lrhAHyEbO_Ioh8H-ip0jDL7qcXq3Z" target="_blank">(link to his/her work)</a>, I guided students in animating "Thing" from the show Wednesday. "Thing" is a fictional character, a disembodied hand that, through specific hand mechanics, conveys emotions and actions we typically associate with a person. For example, when "Thing" is angry, it snaps its fingers on the floor, signaling its frustration without the need for words—just movement.
+                                    </p>
+                                    <p class="mb-4" style="text-align: justify;">
+                                    Students were tasked with animating "Thing" as it moves across the screen, similar to the example shown in the GIF below:
+                                    </p>
+                                    
+                                    <p class="mb-4" style="text-align: justify;">
+                                    By sharing my passion for biomechanics and animation, I aim to inspire these young students to explore the fascinating intersection of science and creativity, encouraging them to pursue similar paths. My involvement in events like National Biomechanics Day reflects my commitment to fostering curiosity and innovation within my community.
+                                    For more details, visit <a href="https://biomechday.github.io/sessions/hand-rigging-and-animation" target="_blank">Biomechanics Day Event Link</a>.
+                                    </p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i> Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const images2 = [
+                'assets/img/Outreach/Biomechanics2024Pic1.png',
+                'assets/img/Outreach/Biomechanics2024Pic5.png',
+                'assets/img/Outreach/Biomechanics2024Pic3.png',
+                'assets/img/Outreach/Biomechanics2024Pic4.png',
+                'assets/img/Outreach/Biomechanics2024Pic2.png',
+                'assets/img/Outreach/Biomechanics2024Pic6.png'
+            ];
+
+            let currentIndex2 = 0;
+
+            function changeImage2(direction, imageId) {
+                currentIndex2 += direction;
+
+                if (currentIndex2 >= images2.length) {
+                    currentIndex2 = 0;
+                } else if (currentIndex2 < 0) {
+                    currentIndex2 = images2.length - 1;
+                }
+
+                document.getElementById(imageId).src = images2[currentIndex2];
+            }
+        </script>
+
+
+
+
+        <!-- Outreach Modal 2 -->
+        <div class="Outreach-modal modal fade" id="outreachModal2" tabindex="-1" aria-labelledby="outreachModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="outreach-modal-title text-secondary text-uppercase mb-0">CMU Biomechanics Day Outreach Event 2024 - Biomechanics of An Animated Character</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -610,12 +771,12 @@
                                     </div>
                                     <!-- Outreach Modal - Image with Navigation Arrows -->
                                     <div class="position-relative">
-                                        <img id="outreachmodalImage1" class="img-fluid rounded mb-5" src="assets/img/Outreach/Biomechanics2023Pic1.png" alt="..." />
+                                        <img id="outreachmodalImage2" class="img-fluid rounded mb-5" src="assets/img/Outreach/Biomechanics2024Pic1.png" alt="..." />
                                         <!-- Navigation Arrows -->
-                                        <button id="prevBtn" class="position-absolute top-50 start-0 translate-middle-y btn btn-light" onclick="changeImage(-1, 'outreachmodalImage1')" style="left: 10px; z-index: 10;">
+                                        <button id="prevBtn2" class="position-absolute top-50 start-0 translate-middle-y btn btn-light" onclick="changeImage2(-1, 'outreachmodalImage2')" style="left: 10px; z-index: 10;">
                                             <i class="fas fa-chevron-left fa-fw"></i>
                                         </button>
-                                        <button id="nextBtn" class="position-absolute top-50 end-0 translate-middle-y btn btn-light" onclick="changeImage(1, 'outreachmodalImage1')" style="right: 10px; z-index: 10;">
+                                        <button id="nextBtn2" class="position-absolute top-50 end-0 translate-middle-y btn btn-light" onclick="changeImage2(1, 'outreachmodalImage2')" style="right: 10px; z-index: 10;">
                                             <i class="fas fa-chevron-right fa-fw"></i>
                                         </button>
                                     </div>
@@ -651,93 +812,17 @@
         <script>
             // Array of images and their corresponding texts
             const images = [
-                { src: 'assets/img/Outreach/Biomechanics2023Pic1.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2023Pic5.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2023Pic3.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2023Pic4.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2023Pic2.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2023Pic6.png', text: '' }
-            ];
-
-            let currentIndex = 0;
-
-            function changeImage(direction) {
-                // Update the current index
-                currentIndex += direction;
-
-                // Wrap around if necessary
-                if (currentIndex >= images.length) {
-                    currentIndex = 0;
-                } else if (currentIndex < 0) {
-                    currentIndex = images.length - 1;
-                }
-
-                // Update the image (text remains unchanged)
-                document.getElementById('outreachmodalImage1').src = images[currentIndex].src;
-            }
-        </script>
-
-        <!-- Outreach Modal 2-->
-        <div class="Outreach-modal modal fade" id="outreachModal2" tabindex="-1" aria-labelledby="outreachModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0">
-                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="outreach-modal-title text-secondary text-uppercase mb-0">CMU Biomechanics Day Outreach Event 2024 - Biomechanics of an Animated Character</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Outreach Modal - Image with Navigation Arrows -->
-                                    <div class="position-relative">
-                                        <img id="outreachmodalImage2" class="img-fluid rounded mb-5" src="assets/img/Outreach/Biomechanics2024Pic1.png" alt="..." />
-                                        <!-- Navigation Arrows -->
-                                        <button id="BeBtn" class="position-absolute top-50 start-0 translate-middle-y btn btn-light" onclick="changeImage(-1, 'outreachmodalImage2')" style="left: 10px; z-index: 10;">
-                                            <i class="fas fa-chevron-left fa-fw"></i>
-                                        </button>
-                                        <button id="otBtn" class="position-absolute top-50 end-0 translate-middle-y btn btn-light" onclick="changeImage(1, 'outreachmodalImage1')" style="right: 10px; z-index: 10;">
-                                            <i class="fas fa-chevron-right fa-fw"></i>
-                                        </button>
-                                    </div>
-                                    <!-- Outreach Modal - Text (constant) -->
-                                    <p id="modalText1" class="mb-4">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam. For more details, visit <a href="https://biomechday.github.io/sessions/hand-rigging-and-animation" target="_blank">Biomechanics Day Event Link</a>.
-                                    </p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i> Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- JavaScript for Image Cycling -->
-        <script>
-            // Array of images and their corresponding texts
-            const images = [
                 { src: 'assets/img/Outreach/Biomechanics2024Pic1.png', text: '' },
                 { src: 'assets/img/Outreach/Biomechanics2024Pic5.png', text: '' },
                 { src: 'assets/img/Outreach/Biomechanics2024Pic3.png', text: '' },
                 { src: 'assets/img/Outreach/Biomechanics2024Pic4.png', text: '' },
                 { src: 'assets/img/Outreach/Biomechanics2024Pic2.png', text: '' },
-                { src: 'assets/img/Outreach/Biomechanics2024Pic6.png', text: '' }
+                { src: 'assets/img/Outreach/Biomechanics2024Pic4.png', text: '' }
             ];
 
             let currentIndex = 0;
 
-            function changeImage(direction) {
+            function changeImage2(direction) {
                 // Update the current index
                 currentIndex += direction;
 
@@ -752,6 +837,8 @@
                 document.getElementById('outreachmodalImage2').src = images[currentIndex].src;
             }
         </script>
+
+
         <!-- Outreach Modal 3-->
         <div class="Outreach-modal modal fade" id="outreachModal3" tabindex="-1" aria-labelledby="outreachModal3" aria-hidden="true">
             <div class="modal-dialog modal-xl">
