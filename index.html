@@ -38,25 +38,87 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/peeps-avatar-alpha.png" alt="..." style="width: 300px; height: auto;" />
+
+                <!-- Masthead Avatar Image (modified for hover-fade) -->
+                <div style="position: relative; display: inline-block; width: 300px; height: auto; margin-bottom: 3rem;">
+                    <!-- Default image -->
+                    <img class="masthead-avatar mb-5" src="assets/img/peeps-avatar-alpha.png" alt="..." style="width: 300px; height: auto; display: block; transition: opacity 0.6s ease-in-out;" />
+                    <!-- Hover image -->
+                    <img src="assets/img/DailynAvatar copy.svg" alt="..." style="width: 300px; height: auto; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.6s ease-in-out;" />
+                </div>
+
+                <script>
+                    // simple fade-swap behavior
+                    const avatarContainer = document.currentScript.previousElementSibling;
+                    const [defaultImg, hoverImg] = avatarContainer.querySelectorAll("img");
+
+                    avatarContainer.addEventListener("mouseenter", () => {
+                        defaultImg.style.opacity = "0";
+                        hoverImg.style.opacity = "1";
+                    });
+                    avatarContainer.addEventListener("mouseleave", () => {
+                        defaultImg.style.opacity = "1";
+                        hoverImg.style.opacity = "0";
+                    });
+                </script>
+
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">DAILYN DESPRADEL PORTFOLIO</h1>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">PhD Student - XR Interaction Developer - Game Developer - UX Researcher </p>
+            </div>
+        </header>
+
+        <!-- Research Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Research Portfolio</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
+                <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">PhD Student - Game Developer - XR Developer - Inclusive Designer</p>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/Hands.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/MetaProject.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/ObjectManipulation.png" alt="..." />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
+        </section>
+        
+       
+        <!-- Personal Portfolio Section-->
+        <section class="page-section portfolio" id="BeyondReaseachportfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Beyond Research Portfolio</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -84,33 +146,6 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/Hands.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/MetaProject.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/ObjectManipulation.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
                     <div class="col-md-6 col-lg-4">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -121,7 +156,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> 
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
