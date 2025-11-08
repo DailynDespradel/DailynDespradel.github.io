@@ -157,32 +157,99 @@
                 </div>
             </div>
         </section> 
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 d-flex align-items-start">
-                        <img src="assets/img/portfolio/me.jpg" alt="About Me" class="img-fluid" style="max-width: 350px; margin-right: 10px;">
-                    </div>
-                    <div class="col-lg-8">
-                        <p class="lead" style="margin-top: 0;">My name is Dailyn Despradel, and as of 2024, I am a third-year Ph.D. student in the Mechanical Engineering Department at Carnegie Mellon University (CMU). I work alongside Dr. Douglas Weber in the Neuromechatronics Lab. My research focuses on understanding the physiological aspects of digitized interactions, particularly within virtual reality (VR) and extended reality (XR) environments.</p>
-                        <p class="lead" style="margin-top: 0;">As an Afro-Latina, I am deeply committed to ensuring representation within VR and XR environments. I strive to develop inclusive and diverse experiences that resonate with a wide range of users. In my free time, I animate and teach middle and high school students how to animate. I have organized events to educate the CMU community about Black experiences through VR and have participated in mentorship initiatives to foster a supportive network among CMU graduate students.</p>
-                    </div>
-                </div>
+
+        <!-- About Section -->
+<!-- About Section -->
+<section class="page-section bg-primary text-white mb-0" id="about">
+  <div class="container-fluid text-center position-relative">
+
+    <h2 class="page-section-heading text-uppercase text-white">About Me</h2>
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <div class="bubble-map">
+      <!-- Center image circle -->
+      <div class="center-bubble">
+        <img src="assets/img/portfolio/Jumping of plane 2.png" alt="About Me" class="about-img">
+      </div>
+
+      <!-- Petal bubbles (outside edge with slight overlap) -->
+      <div class="bubble" style="--angle: -21deg; --orbit: 141px;">Afro-Latina </div>
+      <div class="bubble" style="--angle: 116deg; --orbit: 153px;">Adventurer</div>
+      <div class="bubble" style="--angle: 194deg; --orbit: 280px;">Pictures</div>
+      <div class="bubble" style="--angle: 256deg; --orbit: 257px ">Dog Mom</div>
+    </div>
+
+    <style>
+      /* Fixed-size cluster */
+      .bubble-map {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 2rem auto;
+        overflow: visible; /* ensure petals aren't clipped */
+      }
+
+      /* Main image circle (500x500) */
+      .center-bubble {
+        position: absolute;        /* <-- important */
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
+        border: 0px solid rgba(255,255,255,0.9);
+        z-index: 2;                /* under petals so petals sit on rim */
+      }
+      .about-img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Petal bubbles */
+      .bubble {
+        --orbit: 295px;            /* 250 + (55 - 10) = outside with ~10px overlap */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.95);
+        color: #3BAFDA;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
+        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        transition: transform .25s ease, background-color .25s ease, color .25s ease;
+        z-index: 3;                /* above the big circle */
+        animation: float 6s ease-in-out infinite;
+      }
+      .bubble:hover {
+        background-color: #3BAFDA;
+        color: #fff;
+        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) scale(1.08);
+      }
+
+      @keyframes float {
+        0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
+        50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
+      }
+
+      /* Optional: scale down as a whole on small screens */
+      @media (max-width: 768px) { .bubble-map { transform: scale(.8); } }
+    </style>
+  </div>
+</section>
 
 
-                <!-- About Section Button-->
-            </div>
-        </section>  
+
+
         <!-- Outreach Section-->
         <section class="page-section Outreach" id="Outreach">
             <div class="container">
