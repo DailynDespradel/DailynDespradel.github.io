@@ -1,73 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dailyn Despradel - Working Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">Dailyn Despradel</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#Outreach">Outreach</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dailyn Despradel - Working Portfolio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 
-                <!-- Masthead Avatar Image (modified for hover-fade) -->
-                <div style="position: relative; display: inline-block; width: 300px; height: auto; margin-bottom: 3rem;">
-                    <!-- Default image -->
-                    <img class="masthead-avatar mb-5" src="assets/img/peeps-avatar-alpha.png" alt="..." style="width: 300px; height: auto; display: block; transition: opacity 0.6s ease-in-out;" />
-                    <!-- Hover image -->
-                    <img src="assets/img/DailynAvatar copy.svg" alt="..." style="width: 300px; height: auto; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.6s ease-in-out;" />
-                </div>
+    <style>
+      /* --- Continuous Diagonal Sway Animation --- */
+      .avatar-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
 
-                <script>
-                    // simple fade-swap behavior
-                    const avatarContainer = document.currentScript.previousElementSibling;
-                    const [defaultImg, hoverImg] = avatarContainer.querySelectorAll("img");
+        .masthead-avatar {
+          width: 400px !important;  /* change size here */
+          max-width: none !important;
+          height: auto !important;
+          display: block;
+          margin: 0 auto;
+          animation: diagonal-sway 3s ease-in-out infinite alternate;
+        }
 
-                    avatarContainer.addEventListener("mouseenter", () => {
-                        defaultImg.style.opacity = "0";
-                        hoverImg.style.opacity = "1";
-                    });
-                    avatarContainer.addEventListener("mouseleave", () => {
-                        defaultImg.style.opacity = "1";
-                        hoverImg.style.opacity = "0";
-                    });
-                </script>
+      @keyframes diagonal-sway {
+        0%   { transform: translate(0px, 0px); }
+        25%  { transform: translate(10px, -10px); }
+        50%  { transform: translate(-10px, 10px); }
+        75%  { transform: translate(8px, 8px); }
+        100% { transform: translate(-8px, -8px); }
+      }
 
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">DAILYN DESPRADEL PORTFOLIO</h1>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">PhD Student - XR Interaction Developer - Game Developer - UX Researcher </p>
-            </div>
-        </header>
+      /* Optional: smaller image for phones */
+      @media (max-width: 768px) {
+        .masthead-avatar {
+          width: 250px;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top">Dailyn Despradel</a>
+        <button
+          class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#Outreach">Outreach</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container d-flex align-items-center flex-column">
+        <!-- Avatar -->
+        <div class="avatar-container">
+          <img
+            class="masthead-avatar"
+            src="assets/img/peeps-avatar-alpha.png"
+            alt="Dailyn Despradel avatar"
+          />
+        </div>
+
+        <!-- Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0">DAILYN DESPRADEL PORTFOLIO</h1>
+        <p class="masthead-subheading font-weight-light mb-0">
+          PhD Student – XR Interaction Developer – Game Developer – UX Researcher
+        </p>
+      </div>
+    </header>
+  </body>
+</html>
 
         <!-- Research Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
@@ -159,94 +200,175 @@
         </section> 
 
         <!-- About Section -->
-<!-- About Section -->
-<section class="page-section bg-primary text-white mb-0" id="about">
-  <div class="container-fluid text-center position-relative">
+        <section class="page-section bg-primary text-white mb-0" id="about">
+          <div class="container-fluid text-center position-relative">
 
-    <h2 class="page-section-heading text-uppercase text-white">About Me</h2>
-    <div class="divider-custom divider-light">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-      <div class="divider-custom-line"></div>
-    </div>
+            <!-- Heading -->
+            <h2 class="page-section-heading text-uppercase text-white">About Me</h2>
+            <div class="divider-custom divider-light">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+              <div class="divider-custom-line"></div>
+            </div>
 
-    <div class="bubble-map">
-      <!-- Center image circle -->
-      <div class="center-bubble">
-        <img src="assets/img/portfolio/Jumping of plane 2.png" alt="About Me" class="about-img">
+            <!-- Bubble Map -->
+            <div class="bubble-map">
+              <!-- Center image circle -->
+              <div class="center-bubble">
+                <img src="assets/img/portfolio/Jumping of plane 2.png" alt="About Me" class="about-img">
+              </div>
+
+              <!-- Text-based interactive bubbles -->
+              <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalAfroLatina" style="--angle: -26deg; --orbit: 161px;">
+                Afro-Latina
+              </div>
+
+              <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalAdventurer" style="--angle: 114deg; --orbit: 157px;">
+                Adventurer
+              </div>
+
+              <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalPictures" style="--angle: 194deg; --orbit: 298px;">
+                Pictures
+              </div>
+
+              <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalDogMom" style="--angle: 257deg; --orbit: 289px;">
+                Dog Mom
+              </div>
+            </div>
+
+            <!-- CSS -->
+            <style>
+              .bubble-map {
+                position: relative;
+                width: 500px;
+                height: 500px;
+                margin: 2rem auto;
+                overflow: visible;
+              }
+
+              /* Central image circle */
+              .center-bubble {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                height: 400px;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                overflow: hidden;
+                z-index: 1;
+              }
+
+              .about-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+
+              /* Text bubbles */
+              .bubble {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.9);
+                color: #3BAFDA;
+                font-weight: 700;
+                font-size: 1.05rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+                transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+                cursor: pointer;
+                z-index: 3;
+              }
+
+              .bubble:hover {
+                background-color: #3BAFDA;
+                color: #fff;
+                transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) scale(1.1);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+              }
+
+              /* Floating effect */
+              @keyframes float {
+                0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
+                50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
+              }
+
+              .bubble {
+                animation: float 6s ease-in-out infinite;
+              }
+
+              @media (max-width: 768px) {
+                .bubble-map { transform: scale(0.8); }
+              }
+            </style>
+          </div>
+        </section>
+
+<!-- Modals (Bootstrap style) -->
+<div class="modal fade" id="modalAfroLatina" tabindex="-1" aria-labelledby="modalAfroLatinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAfroLatinaLabel">Afro-Latina Identity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
-      <!-- Petal bubbles (outside edge with slight overlap) -->
-      <div class="bubble" style="--angle: -21deg; --orbit: 141px;">Afro-Latina </div>
-      <div class="bubble" style="--angle: 116deg; --orbit: 153px;">Adventurer</div>
-      <div class="bubble" style="--angle: 194deg; --orbit: 280px;">Pictures</div>
-      <div class="bubble" style="--angle: 256deg; --orbit: 257px ">Dog Mom</div>
+      <div class="modal-body">
+        As an Afro-Latina, I’m deeply committed to increasing representation in XR and ensuring that our digital spaces reflect diverse cultural identities and lived experiences.
+      </div>
+        <img class="img-fluid" src="assets/img/portfolio/Animation.png" alt="..." />
     </div>
-
-    <style>
-      /* Fixed-size cluster */
-      .bubble-map {
-        position: relative;
-        width: 500px;
-        height: 500px;
-        margin: 2rem auto;
-        overflow: visible; /* ensure petals aren't clipped */
-      }
-
-      /* Main image circle (500x500) */
-      .center-bubble {
-        position: absolute;        /* <-- important */
-        top: 50%;
-        left: 50%;
-        width: 400px;
-        height: 400px;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        overflow: hidden;
-        border: 0px solid rgba(255,255,255,0.9);
-        z-index: 2;                /* under petals so petals sit on rim */
-      }
-      .about-img { width: 100%; height: 100%; object-fit: cover; }
-
-      /* Petal bubbles */
-      .bubble {
-        --orbit: 295px;            /* 250 + (55 - 10) = outside with ~10px overlap */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.95);
-        color: #3BAFDA;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
-        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-        transition: transform .25s ease, background-color .25s ease, color .25s ease;
-        z-index: 3;                /* above the big circle */
-        animation: float 6s ease-in-out infinite;
-      }
-      .bubble:hover {
-        background-color: #3BAFDA;
-        color: #fff;
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) scale(1.08);
-      }
-
-      @keyframes float {
-        0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
-        50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
-      }
-
-      /* Optional: scale down as a whole on small screens */
-      @media (max-width: 768px) { .bubble-map { transform: scale(.8); } }
-    </style>
   </div>
-</section>
+</div>
 
+<div class="modal fade" id="modalAdventurer" tabindex="-1" aria-labelledby="modalAdventurerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAdventurerLabel">Adventurer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        I love exploring and taking on challenges that push my comfort zone — from research frontiers to literal freefalls.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPictures" tabindex="-1" aria-labelledby="modalPicturesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPicturesLabel">Pictures</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        I capture moments that inspire storytelling — whether through animation or interactive visual design.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalDogMom" tabindex="-1" aria-labelledby="modalDogMomLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDogMomLabel">Dog Mom</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        My dog keeps me grounded — the best research assistant and adventure buddy anyone could ask for.
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
