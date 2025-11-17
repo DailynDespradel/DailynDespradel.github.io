@@ -270,30 +270,30 @@
           </div>
 
           <!-- Image + Text Bubbles -->
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal1" style="--angle: -31deg; --orbit: 180px;">
+          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal1" style="--angle: -226deg; --orbit: 88px;">
             <div class="bubble-content">
-              <img src="assets/img/Outreach/Bio2023.jpg" alt="" aria-hidden="true" />
+              <img src="assets/img/Outreach/1.png" alt="" aria-hidden="true" />
               <span>Biomechanics 2023</span>
             </div>
           </div>
 
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal2" style="--angle: 114deg; --orbit: 170px;">
+          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal2" style="--angle: 434deg; --orbit: 70px;">
             <div class="bubble-content">
-              <img src="assets/img/Outreach/Bio2024.png" alt="" aria-hidden="true" />
+              <img src="assets/img/Outreach/2.png" alt="" aria-hidden="true" />
               <span>Biomechanics 2024</span>
             </div>
           </div>
 
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal3" style="--angle: 194deg; --orbit: 240px;">
+          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal3" style="--angle: 357deg; --orbit: -119px;">
             <div class="bubble-content">
-              <img src="assets/img/Outreach/VROutreach.png" alt="" aria-hidden="true" />
+              <img src="assets/img/Outreach/3.png" alt="" aria-hidden="true" />
               <span>VR Outreach 2024</span>
             </div>
           </div>
 
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal4" style="--angle: 257deg; --orbit: 250px;">
+          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal4" style="--angle: -3deg; --orbit: -37px;">
             <div class="bubble-content">
-              <img src="assets/img/Outreach/Workshop.png" alt="" aria-hidden="true" />
+              <img src="assets/img/Outreach/4.png" alt="" aria-hidden="true" />
               <span>Workshop 2025</span>
             </div>
           </div>
@@ -995,8 +995,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 140px;
-        height: 140px;
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
         background: rgba(255,255,255,0.9);
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -1011,13 +1011,13 @@
       }
       .bubble-content {
         position: relative;
-        width: 100%; height: 100%;
+        width: 50%; height: 50%;
         border-radius: 50%; overflow: hidden;
         display: flex; align-items: flex-end; justify-content: center;
       }
       .bubble-content img {
         position: absolute; top: 0; left: 0;
-        width: 100%; height: 100%;
+        width: 50%; height: 50%;
         border-radius: 50%; object-fit: cover; z-index: 1;
         transition: transform 0.3s ease;
       }
@@ -1035,7 +1035,7 @@
         0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
         50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
       }
-      @media (max-width: 768px) {
+      @media (max-width: 400px) {
         .outreach-bubble-map { width: 85vw; height: 85vw; }
         .outreach-center-bubble { width: 60vw; height: 60vw; }
         .outreach-bubble { width: 25vw; height: 25vw; }
