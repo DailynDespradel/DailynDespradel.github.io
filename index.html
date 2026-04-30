@@ -66,6 +66,11 @@
         <!-- Avatar -->
         <div class="avatar-container">
           <img class="masthead-avatar" src="assets/img/peeps-avatar-alpha.png" alt="Dailyn Despradel avatar" />
+            <!-- Resume Hover Icon -->
+            <a href="assets/resume.pdf" target="_blank" class="resume-follow" id="resumeFollow">
+              <i class="fas fa-file-pdf"></i>
+              <span>Resume</span>
+            </a>
         </div>
         <!-- Heading -->
         <h1 class="masthead-heading text-uppercase mb-0">DAILYN DESPRADEL PORTFOLIO</h1>
@@ -874,7 +879,22 @@
         "assets/img/Outreach/Biomechanics2024Pic6.png"
       ]);
     </script>
+    <!-- ===== Resume Cursor Follow Script ===== -->
+    <script>
+      const avatarArea = document.getElementById("avatarResumeArea");
+      const resumeFollow = document.getElementById("resumeFollow");
 
+      if (avatarArea && resumeFollow) {
+        avatarArea.addEventListener("mousemove", function (e) {
+          resumeFollow.style.left = e.clientX + "px";
+          resumeFollow.style.top = e.clientY + "px";
+        });
+
+        avatarArea.addEventListener("mouseleave", function () {
+          resumeFollow.style.opacity = "0";
+        });
+      }
+    </script>
     <!-- ========== CUSTOM CSS (kept in-file per your choice) ========== -->
     <style>
       /* Global niceties */
@@ -887,6 +907,53 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 3rem;
+      }
+      
+      /* ===== Cursor-Following Resume Button ===== */
+      .avatar-container {
+        position: relative;
+        display: inline-block;
+      }
+
+      .resume-follow {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background: #ffffff;
+        color: #3BAFDA;
+        border: 2px solid rgba(255, 255, 255, 0.85);
+
+        padding: 10px 14px;
+        border-radius: 999px;
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transform: translate(-50%, -50%) scale(0.85);
+        transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        z-index: 10;
+      }
+
+      .avatar-container:hover .resume-follow {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        pointer-events: auto;
+      }
+
+      .resume-follow:hover {
+        background: #e8f8fd;
+        color: #2c8fb8;
       }
       .masthead-avatar {
         width: 400px !important;
