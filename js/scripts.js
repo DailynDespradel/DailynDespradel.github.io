@@ -40,6 +40,13 @@ window.addEventListener('DOMContentLoaded', event => {
         if (themeToggleText) {
             themeToggleText.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
         }
+
+        document.querySelectorAll('.theme-aware-img').forEach(function (image) {
+            const nextSource = isDark ? image.dataset.darkSrc : image.dataset.lightSrc;
+            if (nextSource && image.getAttribute('src') !== nextSource) {
+                image.setAttribute('src', nextSource);
+            }
+        });
     };
 
     applyTheme(getStoredTheme() || document.documentElement.dataset.theme || 'light');
