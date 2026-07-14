@@ -11022,7 +11022,7 @@ html {
 .portfolio .portfolio-item .portfolio-item-label {
   position: absolute;
   right: 0.85rem;
-  bottom: 0.75rem;
+  bottom: 0.35rem;
   left: 0.85rem;
   z-index: 1;
   color: #66717d;
