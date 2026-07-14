@@ -11089,6 +11089,11 @@ h6,
   font-family: var(--site-font-mono) !important;
 }
 
+.masthead-heading,
+.page-section-heading {
+  font-weight: 700 !important;
+}
+
 html {
   color-scheme: light;
 }

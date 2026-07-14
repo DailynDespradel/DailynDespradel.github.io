@@ -11461,6 +11461,48 @@
         }
       }
 
+      @media (max-width: 575.98px) {
+        .bubble-map {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          height: auto;
+          justify-content: center;
+          margin: 1.5rem auto 0;
+          overflow: visible;
+          width: min(88vw, 360px);
+        }
+
+        .center-bubble {
+          flex: 0 0 min(72vw, 300px);
+          height: min(72vw, 300px);
+          left: auto;
+          margin: 0 auto 0.5rem;
+          position: relative;
+          top: auto;
+          transform: none;
+          width: min(72vw, 300px);
+        }
+
+        .bubble {
+          animation: none;
+          flex: 1 1 calc(50% - 0.75rem);
+          height: auto;
+          min-height: 3rem;
+          padding: 0.65rem 0.75rem;
+          position: relative;
+          top: auto;
+          left: auto;
+          transform: none;
+          width: auto;
+        }
+
+        .bubble:hover {
+          transform: translateY(-2px);
+        }
+      }
+
       /* ===== Outreach: Bubble Map ===== */
       .outreach-bubble-map {
         position: relative;
