@@ -116,7 +116,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -11025,10 +11025,10 @@ html {
   bottom: 0.35rem;
   left: 0.85rem;
   z-index: 1;
-  color: #8a96a3;
+  color: #000000;
   font-family: var(--site-font-mono);
   font-size: clamp(0.72rem, 1.6vw, 0.92rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.2;
   pointer-events: none;
   text-align: center;
@@ -11312,7 +11312,7 @@ html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-caption {
 }
 
 html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-label {
-  color: #9aa8b8;
+  color: #ffffff;
 }
 
 html[data-theme="dark"] .resume-follow,
