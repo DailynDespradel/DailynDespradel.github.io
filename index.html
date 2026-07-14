@@ -7,14 +7,19 @@
     <meta name="description" content="Research and creative portfolio of Dailyn Despradel" />
     <meta name="author" content="Dailyn Despradel" />
     <title>Dailyn Despradel - Working Portfolio</title>
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("site-theme") || "light";
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
 
     <!-- ========== FAVICON ========== -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- ========== FONTS & ICONS ========== -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" />
 
     <!-- ========== THEME CSS (Bootstrap theme) ========== -->
     <link href="css/styles.css" rel="stylesheet" />
@@ -54,6 +59,23 @@
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1 d-flex align-items-lg-center">
+              <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                aria-pressed="false"
+              >
+                <span class="theme-toggle-icon theme-toggle-icon-moon" aria-hidden="true">
+                  <span class="moon-crater moon-crater-large"></span>
+                  <span class="moon-crater moon-crater-small"></span>
+                  <span class="moon-crater moon-crater-tiny"></span>
+                </span>
+                <span class="theme-toggle-icon theme-toggle-icon-sun" aria-hidden="true"></span>
+                <span class="theme-toggle-text visually-hidden">Switch to dark mode</span>
+              </button>
             </li>
           </ul>
         </div>

@@ -11044,3 +11044,280 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+/* Match the Astro Cactus/Tailwind font-mono stack used in 3D_Portfolio. */
+:root {
+  --site-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-font-sans-serif: var(--site-font-mono);
+  --bs-body-font-family: var(--site-font-mono);
+}
+
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.nav-link,
+.masthead-heading,
+.masthead-subheading,
+.page-section-heading,
+.portfolio-modal-title {
+  font-family: var(--site-font-mono) !important;
+}
+
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bs-primary-rgb: 21, 101, 151;
+  --bs-secondary-rgb: 7, 24, 48;
+  --bs-body-color-rgb: 226, 239, 255;
+  --bs-body-bg-rgb: 5, 13, 28;
+  --bs-body-color: #e2efff;
+  --bs-body-bg: #050d1c;
+  --bs-border-color: #25496d;
+  --bs-link-color: #7dd3fc;
+  --bs-link-hover-color: #b7e8ff;
+}
+
+body,
+#mainNav,
+.page-section,
+.portfolio-modal .modal-content,
+.footer,
+.copyright,
+.resume-follow,
+.bubble,
+.outreach-bubble,
+.portfolio .portfolio-item,
+.divider-custom .divider-custom-line {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-toggle {
+  align-items: center;
+  background: #eceef2;
+  border: 0;
+  border-radius: 0.55rem;
+  color: #20262d;
+  display: inline-flex;
+  height: 3.4rem;
+  justify-content: center;
+  margin: 0.75rem 0;
+  padding: 0;
+  width: 3.4rem;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: #eceef2;
+  box-shadow: 0 0 0 0.18rem rgba(59, 175, 218, 0.35);
+  color: #20262d;
+  outline: none;
+}
+
+.theme-toggle-icon {
+  display: block;
+  height: 2rem;
+  position: relative;
+  width: 2rem;
+}
+
+.theme-toggle-icon-moon {
+  border: 0.22rem solid currentColor;
+  border-radius: 50%;
+}
+
+.moon-crater {
+  background: currentColor;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.moon-crater-large {
+  height: 0.52rem;
+  left: 0.32rem;
+  top: 0.42rem;
+  width: 0.52rem;
+}
+
+.moon-crater-small {
+  height: 0.36rem;
+  right: 0.34rem;
+  top: 0.74rem;
+  width: 0.36rem;
+}
+
+.moon-crater-tiny {
+  bottom: 0.34rem;
+  height: 0.32rem;
+  left: 0.78rem;
+  width: 0.32rem;
+}
+
+.theme-toggle-icon-sun {
+  display: none;
+}
+
+.theme-toggle-icon-sun::before {
+  background: currentColor;
+  border-radius: 50%;
+  content: "";
+  height: 1rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+}
+
+.theme-toggle-icon-sun::after {
+  background: currentColor;
+  content: "";
+  height: 0.18rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.32rem;
+  box-shadow:
+    0 -0.9rem 0 currentColor,
+    0 0.9rem 0 currentColor,
+    0.9rem 0 0 currentColor,
+    -0.9rem 0 0 currentColor,
+    0.64rem -0.64rem 0 currentColor,
+    -0.64rem -0.64rem 0 currentColor,
+    0.64rem 0.64rem 0 currentColor,
+    -0.64rem 0.64rem 0 currentColor;
+}
+
+@media (min-width: 992px) {
+  .theme-toggle {
+    margin: 0 0 0 0.5rem;
+  }
+}
+
+html[data-theme="dark"] body {
+  background-color: #050d1c;
+  color: #e2efff;
+}
+
+html[data-theme="dark"] #mainNav,
+html[data-theme="dark"] .footer {
+  background-color: #071830 !important;
+}
+
+html[data-theme="dark"] #mainNav .navbar-brand,
+html[data-theme="dark"] #mainNav .navbar-nav li.nav-item a.nav-link {
+  color: #f4f9ff;
+}
+
+html[data-theme="dark"] #mainNav .navbar-nav li.nav-item a.nav-link:hover,
+html[data-theme="dark"] #mainNav .navbar-nav li.nav-item a.nav-link.active {
+  color: #8bdcff;
+}
+
+html[data-theme="dark"] #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
+html[data-theme="dark"] #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active,
+html[data-theme="dark"] #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus,
+html[data-theme="dark"] #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+  background: #156597;
+  color: #fff;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: #343842;
+  color: #d7d9de;
+}
+
+html[data-theme="dark"] .theme-toggle:hover,
+html[data-theme="dark"] .theme-toggle:focus-visible {
+  background: #343842;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .theme-toggle-icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle-icon-sun {
+  display: block;
+}
+
+html[data-theme="dark"] .masthead,
+html[data-theme="dark"] #about {
+  background: linear-gradient(135deg, #071830 0%, #0d3157 56%, #156597 100%) !important;
+}
+
+html[data-theme="dark"] .page-section,
+html[data-theme="dark"] #Outreach,
+html[data-theme="dark"] #contact,
+html[data-theme="dark"] #BeyondResearchPortfolio {
+  background-color: #081426 !important;
+  color: #e2efff;
+}
+
+html[data-theme="dark"] .portfolio {
+  background-color: #050d1c !important;
+}
+
+html[data-theme="dark"] .portfolio-modal .modal-content {
+  background-color: #081426;
+  color: #e2efff;
+}
+
+html[data-theme="dark"] .text-secondary,
+html[data-theme="dark"] .portfolio-modal-title,
+html[data-theme="dark"] .page-section-heading,
+html[data-theme="dark"] .outreach-modal-title {
+  color: #d8efff !important;
+}
+
+html[data-theme="dark"] .divider-custom .divider-custom-line {
+  background-color: #7dd3fc;
+}
+
+html[data-theme="dark"] .divider-custom .divider-custom-icon {
+  color: #7dd3fc;
+}
+
+html[data-theme="dark"] .portfolio .portfolio-item {
+  background-color: #10243d;
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-caption {
+  background-color: rgba(21, 101, 151, 0.88);
+}
+
+html[data-theme="dark"] .resume-follow,
+html[data-theme="dark"] .bubble,
+html[data-theme="dark"] .outreach-bubble {
+  background: rgba(12, 33, 58, 0.94);
+  color: #9ee6ff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .bubble:hover {
+  background-color: #156597;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .copyright {
+  background-color: #030914;
+}
+
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .bg-primary {
+  background-color: #156597 !important;
+  border-color: #156597 !important;
+}

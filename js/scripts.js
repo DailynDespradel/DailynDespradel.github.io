@@ -9,6 +9,48 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
+    const themeToggle = document.body.querySelector('#themeToggle');
+    const themeToggleText = themeToggle ? themeToggle.querySelector('.theme-toggle-text') : null;
+    const getStoredTheme = function () {
+        try {
+            return window.localStorage.getItem('site-theme');
+        } catch (error) {
+            return null;
+        }
+    };
+    const storeTheme = function (theme) {
+        try {
+            window.localStorage.setItem('site-theme', theme);
+        } catch (error) {
+            return;
+        }
+    };
+    const applyTheme = function (theme) {
+        const isDark = theme === 'dark';
+        document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+        storeTheme(isDark ? 'dark' : 'light');
+
+        if (!themeToggle) {
+            return;
+        }
+
+        themeToggle.setAttribute('aria-pressed', isDark.toString());
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+        if (themeToggleText) {
+            themeToggleText.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+    };
+
+    applyTheme(getStoredTheme() || document.documentElement.dataset.theme || 'light');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+        });
+    }
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
