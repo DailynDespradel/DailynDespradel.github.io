@@ -11337,3 +11337,138 @@ html[data-theme="dark"] .bg-primary {
   background-color: #156597 !important;
   border-color: #156597 !important;
 }
+
+@media (max-width: 991.98px) {
+  #mainNav {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  #mainNav .container {
+    align-items: center;
+  }
+
+  #mainNav .navbar-brand {
+    font-size: clamp(1rem, 4.5vw, 1.45rem);
+    line-height: 1.1;
+    max-width: calc(100vw - 10.5rem);
+    white-space: normal;
+  }
+
+  #mainNav .navbar-collapse {
+    flex-basis: 100%;
+  }
+
+  #mainNav .navbar-nav {
+    margin-top: 0.75rem;
+  }
+
+  #mainNav .navbar-nav li.nav-item a.nav-link {
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  .theme-toggle {
+    height: 2.45rem;
+    right: 0.75rem;
+    top: 0.75rem;
+    width: 2.45rem;
+  }
+
+  body.modal-open .theme-toggle {
+    right: 3.85rem;
+  }
+
+  .navbar-actions {
+    gap: 0.5rem;
+    padding-right: 2.85rem;
+  }
+
+  .portfolio .portfolio-item {
+    max-width: min(100%, 23rem);
+  }
+
+  .portfolio-modal .portfolio-modal-title {
+    font-size: clamp(1.65rem, 6vw, 2.25rem);
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-section {
+    padding: 4rem 0;
+  }
+
+  .page-section .page-section-heading {
+    font-size: clamp(1.65rem, 8vw, 2.1rem);
+    line-height: 1.08;
+  }
+
+  .divider-custom {
+    margin: 1rem 0 1.35rem;
+  }
+
+  .divider-custom .divider-custom-line {
+    max-width: 5rem;
+  }
+
+  .masthead {
+    padding-top: calc(4.5rem + 72px);
+    padding-bottom: 4rem;
+  }
+
+  .masthead .masthead-heading {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 1.05;
+    max-width: 100%;
+  }
+
+  .masthead .masthead-subheading {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .portfolio .portfolio-item .portfolio-item-label {
+    bottom: 0.3rem;
+    font-size: clamp(0.68rem, 3.4vw, 0.86rem);
+    left: 0.7rem;
+    right: 0.7rem;
+  }
+
+  .portfolio-modal .modal-body {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .portfolio-modal .btn-close {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  #mainNav .navbar-brand {
+    max-width: calc(100vw - 9.5rem);
+  }
+
+  #mainNav .navbar-toggler {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .theme-toggle {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .theme-toggle-icon {
+    height: 1.32rem;
+    width: 1.32rem;
+  }
+
+  .masthead {
+    padding-top: calc(4rem + 68px);
+  }
+
+  .portfolio .portfolio-item {
+    max-width: 100%;
+  }
+}
