@@ -11007,6 +11007,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   transition: all 0.2s ease-in-out;
   opacity: 0;
   background-color: rgba(59, 175, 218, 0.8);
@@ -11016,6 +11017,22 @@ html {
 }
 .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
   font-size: 1.5rem;
+}
+
+.portfolio .portfolio-item .portfolio-item-label {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.75rem;
+  left: 0.85rem;
+  z-index: 1;
+  color: #66717d;
+  font-family: var(--site-font-mono);
+  font-size: clamp(0.72rem, 1.6vw, 0.92rem);
+  font-weight: 700;
+  line-height: 1.2;
+  pointer-events: none;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .portfolio-modal .btn-close {
@@ -11292,6 +11309,10 @@ html[data-theme="dark"] .portfolio .portfolio-item {
 
 html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-caption {
   background-color: rgba(8, 31, 56, 0.9);
+}
+
+html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-label {
+  color: #9aa8b8;
 }
 
 html[data-theme="dark"] .resume-follow,
