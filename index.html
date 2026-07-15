@@ -107,7 +107,7 @@
               }
 
               .dailyn-eye-lid {
-                animation: dailyn-eye-lid-blink 5.4s infinite;
+                animation: dailyn-eye-lid-blink 4.2s infinite;
                 opacity: 0;
                 transform: scaleY(0.05);
                 transform-box: fill-box;
@@ -115,13 +115,13 @@
               }
 
               @keyframes dailyn-eye-lid-blink {
-                0%, 90%, 100% { opacity: 0; transform: scaleY(0.05); }
-                93%, 96% { opacity: 1; transform: scaleY(1); }
+                0%, 86%, 100% { opacity: 0; transform: scaleY(0.05); }
+                89%, 92% { opacity: 1; transform: scaleY(1); }
               }
 
 
               .dailyn-earring-swing {
-                animation: dailyn-earring-swing 2.6s ease-in-out infinite;
+                animation: dailyn-earring-swing 2.35s ease-in-out infinite;
                 transform-box: view-box;
               }
 
@@ -135,17 +135,17 @@
               }
 
               @keyframes dailyn-earring-swing {
-                0%, 100% { transform: rotate(-4deg) translateX(-0.8px); }
-                25% { transform: rotate(5deg) translateX(1.4px); }
-                50% { transform: rotate(-3deg) translateX(-1.2px); }
-                75% { transform: rotate(4deg) translateX(0.8px); }
+                0%, 100% { transform: rotate(-6deg) translateX(-1.4px); }
+                25% { transform: rotate(8deg) translateX(2.4px); }
+                50% { transform: rotate(-5deg) translateX(-2px); }
+                75% { transform: rotate(6deg) translateX(1.4px); }
               }
 
               @keyframes dailyn-earring-swing-mirror {
-                0%, 100% { transform: rotate(4deg) translateX(0.8px); }
-                25% { transform: rotate(-5deg) translateX(-1.4px); }
-                50% { transform: rotate(3deg) translateX(1.2px); }
-                75% { transform: rotate(-4deg) translateX(-0.8px); }
+                0%, 100% { transform: rotate(6deg) translateX(1.4px); }
+                25% { transform: rotate(-8deg) translateX(-2.4px); }
+                50% { transform: rotate(5deg) translateX(2px); }
+                75% { transform: rotate(-6deg) translateX(-1.4px); }
               }
 
               @media (prefers-reduced-motion: reduce) {
@@ -11456,27 +11456,31 @@
         transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
         cursor: pointer;
         z-index: 3;
-        animation: bubble-float 6s ease-in-out infinite;
       }
       .bubble-top {
+        animation: bubble-float-y-centered 6s ease-in-out infinite;
         top: 40px;
         transform: translateX(-50%);
       }
       .bubble-right {
+        animation: bubble-float-side 6s ease-in-out infinite;
         left: auto;
         right: 20px;
         transform: translateY(-50%);
       }
       .bubble-bottom {
+        animation: bubble-float-y-centered 6s ease-in-out infinite;
         bottom: 40px;
         top: auto;
         transform: translateX(-50%);
       }
       .bubble-left {
+        animation: bubble-float-side 6s ease-in-out infinite;
         left: 20px;
         transform: translateY(-50%);
       }
       .bubble:hover {
+        animation: none;
         background-color: #3BAFDA;
         color: #fff;
         box-shadow: 0 8px 16px rgba(0,0,0,0.25);
@@ -11493,9 +11497,13 @@
       .bubble-left:hover {
         transform: translateY(-50%) scale(1.08);
       }
-      @keyframes bubble-float {
-        0%, 100% { margin-top: 0; }
-        50%      { margin-top: -6px; }
+      @keyframes bubble-float-y-centered {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50%      { transform: translateX(-50%) translateY(-6px); }
+      }
+      @keyframes bubble-float-side {
+        0%, 100% { transform: translateY(-50%) translateY(0); }
+        50%      { transform: translateY(-50%) translateY(-6px); }
       }
       @media (max-width: 768px) {
         .bubble-map {
@@ -11567,7 +11575,6 @@
         }
 
         .bubble {
-          animation: bubble-float 6s ease-in-out infinite;
           height: min(24vw, 92px);
           left: 50%;
           position: absolute;

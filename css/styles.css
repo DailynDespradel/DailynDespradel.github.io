@@ -11025,7 +11025,7 @@ html {
   bottom: 0.35rem;
   left: 0.85rem;
   z-index: 1;
-  color: #000000;
+  color: #ffffff;
   font-family: var(--site-font-mono);
   font-size: clamp(0.72rem, 1.6vw, 0.92rem);
   font-weight: 400;
@@ -11312,6 +11312,16 @@ html[data-theme="dark"] #modalAdventurer .modal-header,
 html[data-theme="dark"] #modalPictures .modal-header,
 html[data-theme="dark"] #modalDogMom .modal-header {
   border-color: #25496d;
+}
+
+html[data-theme="dark"] .portfolio-modal .btn-close,
+html[data-theme="dark"] .Outreach-modal .btn-close,
+html[data-theme="dark"] #modalAfroLatina .btn-close,
+html[data-theme="dark"] #modalAdventurer .btn-close,
+html[data-theme="dark"] #modalPictures .btn-close,
+html[data-theme="dark"] #modalDogMom .btn-close {
+  filter: invert(91%) sepia(19%) saturate(586%) hue-rotate(180deg) brightness(104%) contrast(104%);
+  opacity: 1;
 }
 
 html[data-theme="dark"] .text-secondary,
