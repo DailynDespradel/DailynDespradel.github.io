@@ -11115,6 +11115,11 @@ body,
 #mainNav,
 .page-section,
 .portfolio-modal .modal-content,
+.Outreach-modal .modal-content,
+#modalAfroLatina .modal-content,
+#modalAdventurer .modal-content,
+#modalPictures .modal-content,
+#modalDogMom .modal-content,
 .footer,
 .copyright,
 .resume-follow,
@@ -11292,10 +11297,31 @@ html[data-theme="dark"] .portfolio-modal .modal-content {
   color: #e2efff;
 }
 
+html[data-theme="dark"] .Outreach-modal .modal-content,
+html[data-theme="dark"] #modalAfroLatina .modal-content,
+html[data-theme="dark"] #modalAdventurer .modal-content,
+html[data-theme="dark"] #modalPictures .modal-content,
+html[data-theme="dark"] #modalDogMom .modal-content {
+  background-color: #081426;
+  color: #e2efff !important;
+}
+
+html[data-theme="dark"] .Outreach-modal .modal-header,
+html[data-theme="dark"] #modalAfroLatina .modal-header,
+html[data-theme="dark"] #modalAdventurer .modal-header,
+html[data-theme="dark"] #modalPictures .modal-header,
+html[data-theme="dark"] #modalDogMom .modal-header {
+  border-color: #25496d;
+}
+
 html[data-theme="dark"] .text-secondary,
 html[data-theme="dark"] .portfolio-modal-title,
 html[data-theme="dark"] .page-section-heading,
-html[data-theme="dark"] .outreach-modal-title {
+html[data-theme="dark"] .outreach-modal-title,
+html[data-theme="dark"] #modalAfroLatina .modal-title,
+html[data-theme="dark"] #modalAdventurer .modal-title,
+html[data-theme="dark"] #modalPictures .modal-title,
+html[data-theme="dark"] #modalDogMom .modal-title {
   color: #d8efff !important;
 }
 

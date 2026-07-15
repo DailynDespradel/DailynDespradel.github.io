@@ -10539,16 +10539,16 @@
           </div>
 
           <!-- Text-based interactive bubbles -->
-          <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalAfroLatina" style="--angle: -26deg; --orbit: 161px;">
+          <div class="bubble bubble-right" data-bs-toggle="modal" data-bs-target="#modalAfroLatina">
             Afro-Latina
           </div>
-          <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalAdventurer" style="--angle: 114deg; --orbit: 157px;">
+          <div class="bubble bubble-bottom" data-bs-toggle="modal" data-bs-target="#modalAdventurer">
             Adventurer
           </div>
-          <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalPictures" style="--angle: 194deg; --orbit: 298px;">
+          <div class="bubble bubble-left" data-bs-toggle="modal" data-bs-target="#modalPictures">
             Pictures
           </div>
-          <div class="bubble" data-bs-toggle="modal" data-bs-target="#modalDogMom" style="--angle: 257deg; --orbit: 289px;">
+          <div class="bubble bubble-top" data-bs-toggle="modal" data-bs-target="#modalDogMom">
             Dog Mom
           </div>
         </div>
@@ -10830,6 +10830,34 @@
           </div>
         </div>
       </div> 
+    </div>
+
+    <!-- ========== OUTREACH MODAL 4 (WORKSHOP 2025) ========== -->
+    <div class="Outreach-modal modal fade" id="outreachModal4" tabindex="-1" aria-labelledby="outreachModal4" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body text-center pb-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <h2 class="outreach-modal-title text-secondary text-uppercase mb-0">Workshop 2025</h2>
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <img class="img-fluid rounded mb-5" src="assets/img/Outreach/Mentorship.png" alt="Workshop 2025" />
+                  <button class="btn btn-primary" data-bs-dismiss="modal">
+                    <i class="fas fa-xmark fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ========== CONTACT SECTION ========== -->
@@ -11424,22 +11452,50 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
         cursor: pointer;
         z-index: 3;
-        animation: float 6s ease-in-out infinite;
+        animation: bubble-float 6s ease-in-out infinite;
+      }
+      .bubble-top {
+        top: 40px;
+        transform: translateX(-50%);
+      }
+      .bubble-right {
+        left: auto;
+        right: 20px;
+        transform: translateY(-50%);
+      }
+      .bubble-bottom {
+        bottom: 40px;
+        top: auto;
+        transform: translateX(-50%);
+      }
+      .bubble-left {
+        left: 20px;
+        transform: translateY(-50%);
       }
       .bubble:hover {
         background-color: #3BAFDA;
         color: #fff;
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) scale(1.1);
         box-shadow: 0 8px 16px rgba(0,0,0,0.25);
       }
-      @keyframes float {
-        0%, 100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
-        50%      { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
+      .bubble-top:hover {
+        transform: translateX(-50%) scale(1.08);
+      }
+      .bubble-right:hover {
+        transform: translateY(-50%) scale(1.08);
+      }
+      .bubble-bottom:hover {
+        transform: translateX(-50%) scale(1.08);
+      }
+      .bubble-left:hover {
+        transform: translateY(-50%) scale(1.08);
+      }
+      @keyframes bubble-float {
+        0%, 100% { margin-top: 0; }
+        50%      { margin-top: -6px; }
       }
       @media (max-width: 768px) {
         .bubble-map {
@@ -11453,53 +11509,102 @@
         }
 
         .bubble {
-          --orbit: min(27vw, 112px) !important;
           width: min(22vw, 86px);
           height: min(22vw, 86px);
           font-size: clamp(0.72rem, 3vw, 0.9rem);
           padding: 0.35rem;
         }
+
+        .bubble-top {
+          top: 5%;
+          transform: translateX(-50%);
+        }
+        .bubble-right {
+          left: auto;
+          right: 1%;
+          transform: translateY(-50%);
+        }
+        .bubble-bottom {
+          bottom: 5%;
+          top: auto;
+          transform: translateX(-50%);
+        }
+        .bubble-left {
+          left: 1%;
+          transform: translateY(-50%);
+        }
+
+        .bubble-top:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-right:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+        .bubble-bottom:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-left:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
       }
 
       @media (max-width: 575.98px) {
         .bubble-map {
-          align-items: center;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          height: auto;
-          justify-content: center;
-          margin: 1.5rem auto 0;
+          display: block;
+          height: min(92vw, 360px);
+          margin: 1.5rem auto 1rem;
           overflow: visible;
-          width: min(88vw, 360px);
+          width: min(92vw, 360px);
         }
 
         .center-bubble {
-          flex: 0 0 min(72vw, 300px);
-          height: min(72vw, 300px);
-          left: auto;
-          margin: 0 auto 0.5rem;
-          position: relative;
-          top: auto;
-          transform: none;
-          width: min(72vw, 300px);
+          height: min(68vw, 275px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: min(68vw, 275px);
         }
 
         .bubble {
-          animation: none;
-          flex: 1 1 calc(50% - 0.75rem);
-          height: auto;
-          min-height: 3rem;
-          padding: 0.65rem 0.75rem;
-          position: relative;
-          top: auto;
-          left: auto;
-          transform: none;
-          width: auto;
+          animation: bubble-float 6s ease-in-out infinite;
+          height: min(24vw, 92px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          width: min(24vw, 92px);
         }
 
-        .bubble:hover {
-          transform: translateY(-2px);
+        .bubble-top {
+          top: 3%;
+          transform: translateX(-50%);
+        }
+        .bubble-right {
+          left: auto;
+          right: 0;
+          transform: translateY(-50%);
+        }
+        .bubble-bottom {
+          bottom: 3%;
+          top: auto;
+          transform: translateX(-50%);
+        }
+        .bubble-left {
+          left: 0;
+          transform: translateY(-50%);
+        }
+
+        .bubble-top:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-right:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+        .bubble-bottom:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-left:hover {
+          transform: translateY(-50%) scale(1.06);
         }
       }
 
