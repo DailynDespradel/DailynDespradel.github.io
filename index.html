@@ -134,6 +134,14 @@
                 transform-origin: 728px 642px;
               }
 
+              .dailyn-shirt-main {
+                transition: fill 0.25s ease;
+              }
+
+              html[data-theme="dark"] .dailyn-shirt-main {
+                fill: #111318;
+              }
+
               @keyframes dailyn-earring-swing {
                 0%, 100% { transform: rotate(-6deg) translateX(-1.4px); }
                 25% { transform: rotate(8deg) translateX(2.4px); }
@@ -154,7 +162,7 @@
               }
             </style>
 
-            <path fill="#CACDD4" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#CACDD4" opacity="1.000000" stroke="none" 
             	d="
             M704.000000,1001.000000 
             	C626.645752,1001.000000 549.291565,1001.000000 471.520569,1000.628357 
@@ -209,7 +217,7 @@
             	C710.226868,974.391357 709.978149,984.055115 705.838196,993.359558 
             	C704.791138,995.713074 704.589966,998.443054 704.000000,1001.000000 
             z"/>
-            <path fill="#C4C8D0" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#C4C8D0" opacity="1.000000" stroke="none" 
             	d="
             M281.079529,890.974487 
             	C284.790314,894.133484 289.567993,896.643188 291.973999,900.596313 
@@ -244,7 +252,7 @@
             	C286.613525,913.508057 285.310944,909.728333 283.954681,905.582764 
             	C282.960510,900.469421 282.019989,895.721985 281.079529,890.974487 
             z"/>
-            <path fill="#BDC1CA" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#BDC1CA" opacity="1.000000" stroke="none" 
             	d="
             M339.468658,1001.000000 
             	C344.816986,984.167114 344.083649,966.701904 344.007690,949.296997 
@@ -300,7 +308,7 @@
             	C736.630615,937.183105 726.431824,927.434448 716.675964,917.262390 
             	C716.046875,916.606323 714.939941,916.408569 714.055298,915.997559 
             z"/>
-            <path fill="#BDC1CA" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#BDC1CA" opacity="1.000000" stroke="none" 
             	d="
             M287.425964,938.885132 
             	C287.227386,938.217224 287.283539,937.836243 287.506958,936.933655 
@@ -367,7 +375,7 @@
             	C300.933319,1001.000000 299.866669,1001.000000 298.400024,1001.000000 
             	C296.436676,995.880676 294.873322,990.761414 293.284485,985.264282 
             z"/>
-            <path fill="#D4D6DD" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#D4D6DD" opacity="1.000000" stroke="none" 
             	d="
             M396.882446,815.950928 
             	C398.580139,810.163086 400.826508,804.463135 401.773132,798.554993 
@@ -1018,7 +1026,7 @@
             	C562.187378,752.811951 563.536072,754.112549 564.601196,755.033813 
             	C549.415405,759.174988 534.362488,761.617859 518.994019,761.992249 
             z"/>
-            <path fill="#DEDFE5" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#DEDFE5" opacity="1.000000" stroke="none" 
             	d="
             M724.020813,858.976929 
             	C710.814331,865.889648 697.317627,872.104858 683.037292,876.534058 
@@ -1036,7 +1044,7 @@
             	C729.229248,850.333252 728.450439,852.534119 727.270813,852.775391 
             	C723.276794,853.592407 723.522339,856.098022 724.020813,858.976929 
             z"/>
-            <path fill="#DEDFE5" opacity="1.000000" stroke="none" 
+            <path class="dailyn-shirt-main" fill="#DEDFE5" opacity="1.000000" stroke="none" 
             	d="
             M396.563354,816.104553 
             	C399.358643,821.189514 396.680328,825.794373 394.300476,829.856262 
@@ -10415,7 +10423,7 @@
           </div>
         </a>
 
-        <!-- Cursor-following Resume Button -->
+        <!-- Clickable Resume Bubble -->
         <a href="assets/Dailyn_Despradel_CV.pdf" target="_blank" class="resume-follow" id="resumeFollow">
           <i class="fas fa-file-pdf"></i>
           <span>Resume</span>
@@ -11263,7 +11271,7 @@
         "assets/img/Outreach/Biomechanics2024Pic6.png"
       ]);
     </script>
-    <!-- ===== Resume Cursor Follow Script ===== -->
+    <!-- ===== Resume Bubble Reaction Script ===== -->
     <script>
       window.addEventListener("load", function () {
         const avatar = document.getElementById("mastheadAvatar");
@@ -11271,17 +11279,37 @@
 
         if (!avatar || !resume) return;
 
+        function startAvatarReaction() {
+          avatar.classList.add("avatar-reacting");
+        }
+
+        function stopAvatarReaction() {
+          avatar.classList.remove("avatar-reacting");
+        }
+
         avatar.addEventListener("mouseenter", function () {
           resume.classList.add("active");
         });
 
-        avatar.addEventListener("mousemove", function (e) {
-          resume.style.left = e.clientX + "px";
-          resume.style.top = e.clientY + "px";
+        avatar.addEventListener("mouseleave", function (e) {
+          if (resume.contains(e.relatedTarget)) return;
+          resume.classList.remove("active");
+          stopAvatarReaction();
         });
 
-        avatar.addEventListener("mouseleave", function () {
+        resume.addEventListener("mouseenter", startAvatarReaction);
+        resume.addEventListener("focus", startAvatarReaction);
+        resume.addEventListener("mouseleave", function (e) {
+          if (avatar.contains(e.relatedTarget)) {
+            stopAvatarReaction();
+            return;
+          }
           resume.classList.remove("active");
+          stopAvatarReaction();
+        });
+        resume.addEventListener("blur", function () {
+          resume.classList.remove("active");
+          stopAvatarReaction();
         });
       });
     </script>
@@ -11329,6 +11357,14 @@
         animation-duration: 0.72s;
       }
 
+      .masthead-avatar.avatar-reacting {
+        animation: avatar-react 0.82s ease-in-out infinite;
+      }
+
+      .masthead-avatar.avatar-reacting .dailyn-earring-swing {
+        animation-duration: 1.25s !important;
+      }
+
       @keyframes avatar-walk {
         0%, 100% { transform: translateX(-32px) rotate(-1.5deg); }
         25% { transform: translateX(14px) rotate(1deg); }
@@ -11341,6 +11377,11 @@
         50% { transform: translateY(-8px); }
       }
 
+      @keyframes avatar-react {
+        0%, 100% { transform: translateY(0) scale(1.02) rotate(-0.8deg); }
+        50% { transform: translateY(-10px) scale(1.055) rotate(1deg); }
+      }
+
       @media (max-width: 768px) {
         .avatar-container {
           margin-bottom: 2rem;
@@ -11348,6 +11389,12 @@
         }
 
         .masthead-avatar { width: min(72vw, 260px) !important; }
+
+        .resume-follow {
+          left: calc(50% + 3.2rem);
+          padding: 0.65rem 0.95rem;
+          top: 18.5rem;
+        }
 
         @keyframes avatar-walk {
           0%, 100% { transform: translateX(-14px) rotate(-1.2deg); }
@@ -11364,6 +11411,11 @@
 
         .masthead-avatar { width: min(76vw, 230px) !important; }
 
+        .resume-follow {
+          left: 50%;
+          top: 17.2rem;
+        }
+
         @keyframes avatar-bob {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-5px); }
@@ -11377,41 +11429,49 @@
         }
       }
 
-      /* ===== Cursor-Following Resume Button ===== */
+      /* ===== Clickable Resume Bubble ===== */
       .resume-follow {
-        position: fixed !important;
-        left: 0;
-        top: 0;
+        position: absolute !important;
+        left: calc(50% + 4.75rem);
+        top: 23rem;
 
-        background: #ffffff;
-        color: #3BAFDA;
+        background: rgba(7, 24, 48, 0.92);
+        color: #9ee6ff;
 
-        padding: 10px 16px;
+        padding: 0.85rem 1.25rem;
         border-radius: 999px;
 
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 0.6rem;
 
         font-weight: 700;
-        font-size: 1rem;
+        font-size: clamp(0.92rem, 2.2vw, 1.25rem);
         text-decoration: none;
 
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
 
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        z-index: 999999;
+        box-shadow: 0 0.85rem 1.75rem rgba(0,0,0,0.22);
+        z-index: 4;
 
-        transform: translate(18px, 18px);
+        transform: translate(-50%, -50%);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
       }
 
       .resume-follow.active {
         opacity: 1;
         visibility: visible;
-        pointer-events: auto; /* 🔥 THIS enables clicking */
+        pointer-events: auto;
+      }
 
+      .resume-follow:hover,
+      .resume-follow:focus-visible {
+        background: rgba(7, 24, 48, 1);
+        color: #ffffff;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+        transform: translate(-50%, -50%) scale(1.06);
       }
       /* ===== About: Bubble Map ===== */
       .bubble-map {
