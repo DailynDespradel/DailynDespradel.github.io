@@ -10981,6 +10981,22 @@ html {
 .masthead .masthead-avatar {
   width: 15rem;
 }
+.masthead-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.masthead-social .btn-social {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.masthead-social .btn-social:hover,
+.masthead-social .btn-social:focus-visible {
+  transform: translateY(-3px);
+}
 
 @media (min-width: 992px) {
   .masthead {
