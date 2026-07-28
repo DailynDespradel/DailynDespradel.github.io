@@ -23,21 +23,456 @@
 
     <!-- ========== THEME CSS (Bootstrap theme) ========== -->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- ========== CUSTOM CSS (kept in-file per your choice) ========== -->
+    <style>
+      /* Global niceties */
+      html { scroll-behavior: smooth; }
+
+      /* ===== Avatar Animation ===== */
+      .avatar-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+        animation: avatar-walk 7.5s ease-in-out infinite;
+        color: inherit;
+        cursor: pointer;
+        text-decoration: none;
+        transform-origin: 50% 100%;
+      }
+
+      .avatar-container:focus-visible {
+        outline: 4px solid rgba(255, 255, 255, 0.9);
+        outline-offset: 0.5rem;
+      }
+
+      .masthead-avatar {
+        width: 400px !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+        animation: avatar-bob 0.9s ease-in-out infinite;
+        cursor: inherit;
+      }
+
+      .masthead-avatar svg,
+      .masthead-avatar img {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+
+      .avatar-container:hover .masthead-avatar {
+        animation-duration: 0.72s;
+      }
+
+      .masthead-avatar.avatar-reacting {
+        animation: avatar-react 0.82s ease-in-out infinite;
+      }
+
+      .masthead-avatar.avatar-reacting .dailyn-earring-swing {
+        animation-duration: 1.25s !important;
+      }
+
+      @keyframes avatar-walk {
+        0%, 100% { transform: translateX(-32px) rotate(-1.5deg); }
+        25% { transform: translateX(14px) rotate(1deg); }
+        50% { transform: translateX(34px) rotate(1.5deg); }
+        75% { transform: translateX(-10px) rotate(-1deg); }
+      }
+
+      @keyframes avatar-bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      @keyframes avatar-react {
+        0%, 100% { transform: translateY(0) scale(1.02) rotate(-0.8deg); }
+        50% { transform: translateY(-10px) scale(1.055) rotate(1deg); }
+      }
+
+      @media (max-width: 768px) {
+        .avatar-container {
+          margin-bottom: 4.5rem;
+          max-width: 100%;
+        }
+
+        .masthead-avatar { width: min(72vw, 260px) !important; }
+
+        .resume-follow {
+          left: 76%;
+          padding: 0.65rem 0.95rem;
+          top: 74%;
+        }
+
+        @keyframes avatar-walk {
+          0%, 100% { transform: translateX(-14px) rotate(-1.2deg); }
+          25% { transform: translateX(8px) rotate(0.8deg); }
+          50% { transform: translateX(14px) rotate(1.2deg); }
+          75% { transform: translateX(-6px) rotate(-0.8deg); }
+        }
+      }
+
+      @media (max-width: 420px) {
+        .avatar-container {
+          margin-bottom: 4rem;
+        }
+
+        .masthead-avatar { width: min(76vw, 230px) !important; }
+
+        .resume-follow {
+          left: 50%;
+          top: 105%;
+        }
+
+        @keyframes avatar-bob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .avatar-container,
+        .masthead-avatar {
+          animation: none !important;
+        }
+      }
+
+      /* ===== Clickable Resume Bubble ===== */
+      .resume-follow {
+        position: absolute !important;
+        left: 78%;
+        top: 72%;
+
+        background: rgba(255, 255, 255, 0.94);
+        color: #2c3e50;
+
+        padding: 0.85rem 1.25rem;
+        border-radius: 999px;
+
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        font-weight: 700;
+        font-size: clamp(0.92rem, 2.2vw, 1.25rem);
+        text-decoration: none;
+        white-space: nowrap;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        box-shadow: 0 0.85rem 1.75rem rgba(44, 62, 80, 0.18);
+        z-index: 4;
+
+        transform: translate(-50%, -50%);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .resume-follow:hover,
+      .resume-follow:focus-visible {
+        background: #ffffff;
+        color: #10243d;
+        box-shadow: 0 1rem 2rem rgba(44, 62, 80, 0.28);
+        transform: translate(-50%, -50%) scale(1.06);
+      }
+
+      html[data-theme="dark"] .resume-follow:hover,
+      html[data-theme="dark"] .resume-follow:focus-visible {
+        background: rgba(7, 24, 48, 1);
+        color: #ffffff;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+      }
+      /* ===== About: Bubble Map ===== */
+      .bubble-map {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 2rem auto;
+        overflow: visible;
+      }
+      .center-bubble {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .about-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .bubble {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140px; 
+        height: 140px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        color: #3BAFDA;
+        font-weight: 700;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .bubble-top {
+        animation: bubble-float-y-centered 6s ease-in-out infinite;
+        top: 40px;
+        transform: translateX(-50%);
+      }
+      .bubble-right {
+        animation: bubble-float-side 6s ease-in-out infinite;
+        left: auto;
+        right: 20px;
+        transform: translateY(-50%);
+      }
+      .bubble-bottom {
+        animation: bubble-float-y-centered 6s ease-in-out infinite;
+        bottom: 40px;
+        top: auto;
+        transform: translateX(-50%);
+      }
+      .bubble-left {
+        animation: bubble-float-side 6s ease-in-out infinite;
+        left: 20px;
+        transform: translateY(-50%);
+      }
+      .bubble:hover {
+        animation: none;
+        background-color: #3BAFDA;
+        color: #fff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      }
+      .bubble-top:hover {
+        transform: translateX(-50%) scale(1.08);
+      }
+      .bubble-right:hover {
+        transform: translateY(-50%) scale(1.08);
+      }
+      .bubble-bottom:hover {
+        transform: translateX(-50%) scale(1.08);
+      }
+      .bubble-left:hover {
+        transform: translateY(-50%) scale(1.08);
+      }
+      @keyframes bubble-float-y-centered {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50%      { transform: translateX(-50%) translateY(-6px); }
+      }
+      @keyframes bubble-float-side {
+        0%, 100% { transform: translateY(-50%) translateY(0); }
+        50%      { transform: translateY(-50%) translateY(-6px); }
+      }
+      @media (max-width: 768px) {
+        .bubble-map {
+          width: min(88vw, 360px);
+          height: min(88vw, 360px);
+        }
+
+        .center-bubble {
+          width: min(66vw, 270px);
+          height: min(66vw, 270px);
+        }
+
+        .bubble {
+          width: min(22vw, 86px);
+          height: min(22vw, 86px);
+          font-size: clamp(0.72rem, 3vw, 0.9rem);
+          padding: 0.35rem;
+        }
+
+        .bubble-top {
+          top: 5%;
+          transform: translateX(-50%);
+        }
+        .bubble-right {
+          left: auto;
+          right: 1%;
+          transform: translateY(-50%);
+        }
+        .bubble-bottom {
+          bottom: 5%;
+          top: auto;
+          transform: translateX(-50%);
+        }
+        .bubble-left {
+          left: 1%;
+          transform: translateY(-50%);
+        }
+
+        .bubble-top:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-right:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+        .bubble-bottom:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-left:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .bubble-map {
+          display: block;
+          height: min(92vw, 360px);
+          margin: 1.5rem auto 1rem;
+          overflow: visible;
+          width: min(92vw, 360px);
+        }
+
+        .center-bubble {
+          height: min(68vw, 275px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: min(68vw, 275px);
+        }
+
+        .bubble {
+          height: min(24vw, 92px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          width: min(24vw, 92px);
+        }
+
+        .bubble-top {
+          top: 3%;
+          transform: translateX(-50%);
+        }
+        .bubble-right {
+          left: auto;
+          right: 0;
+          transform: translateY(-50%);
+        }
+        .bubble-bottom {
+          bottom: 3%;
+          top: auto;
+          transform: translateX(-50%);
+        }
+        .bubble-left {
+          left: 0;
+          transform: translateY(-50%);
+        }
+
+        .bubble-top:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-right:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+        .bubble-bottom:hover {
+          transform: translateX(-50%) scale(1.06);
+        }
+        .bubble-left:hover {
+          transform: translateY(-50%) scale(1.06);
+        }
+      }
+
+      /* ===== Outreach: Bubble Map ===== */
+      .outreach-bubble-map {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 3rem auto;
+        overflow: visible;
+      }
+      .outreach-center-bubble {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 450px;
+        height: 450px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .outreach-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .outreach-bubble {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
+        cursor: pointer;
+        z-index: 3;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: outreach-float 6s ease-in-out infinite;
+      }
+      .bubble-content {
+        position: relative;
+        width: 100%; height: 100%;
+        border-radius: 50%; overflow: hidden;
+        display: flex; align-items: flex-end; justify-content: center;
+      }
+      .bubble-content img {
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: 100%;
+        border-radius: 50%; object-fit: cover; z-index: 1;
+        transition: transform 0.3s ease;
+      }
+      .bubble-content span {
+        position: relative; z-index: 2;
+        background: rgba(0,0,0,0.55);
+        color: #fff; font-weight: 600; font-size: 0.9rem;
+        text-align: center; width: 100%; padding: 6px 0;
+        border-bottom-left-radius: 50%; border-bottom-right-radius: 50%;
+        line-height: 1.2;
+      }
+      .outreach-bubble:hover img { transform: scale(1.1); }
+      .outreach-bubble:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.25); }
+      @keyframes outreach-float {
+        0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
+        50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
+      }
+      @media (max-width: 400px) {
+        .outreach-bubble-map { width: 88vw; height: 88vw; }
+        .outreach-center-bubble { width: 62vw; height: 62vw; }
+        .outreach-bubble {
+          --orbit: 28vw !important;
+          width: 20vw;
+          height: 20vw;
+        }
+        .bubble-content span { font-size: 0.8rem; }
+      }
+
+      /* Remove native tooltip popups globally on images with alt */
+      img[alt]:hover::after { content: none !important; }
+    </style>
   </head>
 
   <body id="page-top">
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      type="button"
-      aria-label="Switch to dark mode"
-      aria-pressed="false"
-    >
-      <span class="theme-toggle-icon theme-toggle-icon-sun" aria-hidden="true"></span>
-      <span class="theme-toggle-icon theme-toggle-icon-moon" aria-hidden="true"></span>
-      <span class="theme-toggle-text visually-hidden">Switch to dark mode</span>
-    </button>
-
     <!-- ========== NAVIGATION ========== -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
       <div class="container">
@@ -53,6 +488,20 @@
             aria-label="Toggle navigation"
           >
             Menu <i class="fas fa-bars"></i>
+          </button>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-label" aria-hidden="true">Theme</span>
+            <span class="theme-toggle-icon-wrap" aria-hidden="true">
+              <span class="theme-toggle-icon theme-toggle-icon-sun"></span>
+              <span class="theme-toggle-icon theme-toggle-icon-moon"></span>
+            </span>
+            <span class="theme-toggle-text visually-hidden">Switch to dark mode</span>
           </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -86,10 +535,10 @@
         <!-- Avatar -->
         <a
           class="avatar-container"
-          href="assets/Dailyn_Despradel_CV.pdf"
-          target="_blank"
-          rel="noopener"
-          aria-label="Open Dailyn Despradel CV PDF"
+          href="#cvModal"
+          data-bs-toggle="modal"
+          data-bs-target="#cvModal"
+          aria-label="Open Dailyn Despradel CV details"
         >
           <div
             id="mastheadAvatar"
@@ -10421,18 +10870,17 @@
             </g>
             </svg>
           </div>
-        </a>
-
-        <!-- Clickable Resume Bubble -->
-        <a href="assets/Dailyn_Despradel_CV.pdf" target="_blank" class="resume-follow" id="resumeFollow">
-          <i class="fas fa-file-pdf"></i>
-          <span>Resume</span>
+          <span class="resume-follow" id="resumeFollow" aria-hidden="true">
+            <i class="fas fa-id-card"></i>
+            <span>CV</span>
+          </span>
         </a>
 
         <!-- Heading -->
         <h1 class="masthead-heading text-uppercase mb-0">DAILYN DESPRADEL PORTFOLIO</h1>
         <p class="masthead-subheading font-weight-light mb-0">
-          PhD Student – XR Interaction Developer – UX Designer / Researcher
+          CMU PhD Candidate · Mechanical Engineering · Immersive Accessible HCI
+          <span>XR Development · UX Research · Human-System Technology Interaction</span>
         </p>
         <div class="masthead-social" aria-label="Dailyn Despradel social links">
           <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/dailyn26/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
@@ -10467,6 +10915,16 @@
         <div class="row justify-content-center">
           <!-- Item 1 -->
           <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/ObjectManipulation.png" data-light-src="assets/img/portfolio/ObjectManipulation.png" data-dark-src="assets/img/portfolio/ObjectManipulation-dark.png" alt="Object manipulation in VR project icon" />
+              <div class="portfolio-item-label">Object Manipulation</div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="col-md-6 col-lg-4 mb-5">
             <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -10475,8 +10933,8 @@
               <div class="portfolio-item-label">Hand GIF Library</div>
             </div>
           </div>
-          <!-- Item 2 -->
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <!-- Item 3 -->
+          <div class="col-md-6 col-lg-4 mb-5">
             <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -10485,14 +10943,18 @@
               <div class="portfolio-item-label">EMG Accessibility</div>
             </div>
           </div>
-          <!-- Item 3 -->
+          <!-- Item 4 -->
           <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-              </div>
-              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/ObjectManipulation.png" data-light-src="assets/img/portfolio/ObjectManipulation.png" data-dark-src="assets/img/portfolio/ObjectManipulation-dark.png" alt="Object manipulation in VR project icon" />
-              <div class="portfolio-item-label">Object Manipulation</div>
+            <div class="portfolio-item portfolio-item-placeholder mx-auto">
+              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/ForceDecoding.png" data-light-src="assets/img/portfolio/ForceDecoding.png" data-dark-src="assets/img/portfolio/ForceDecoding-dark.png" alt="Force decoding placeholder icon" />
+              <div class="portfolio-item-label">Force Decoding</div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+            <div class="portfolio-item portfolio-item-placeholder mx-auto">
+              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/AdaptiveXR.png" data-light-src="assets/img/portfolio/AdaptiveXR.png" data-dark-src="assets/img/portfolio/AdaptiveXR-dark.png" alt="Adaptive XR placeholder icon" />
+              <div class="portfolio-item-label">Adaptive XR</div>
             </div>
           </div>
         </div>
@@ -10515,8 +10977,8 @@
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
               </div>
-              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/Headset.png" data-light-src="assets/img/portfolio/Headset.png" data-dark-src="assets/img/portfolio/Headset-dark.png" alt="Extended reality environments icon" />
-              <div class="portfolio-item-label">XR Environments</div>
+              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/Headset.png" data-light-src="assets/img/portfolio/Headset.png" data-dark-src="assets/img/portfolio/Headset-dark.png" alt="Peg-and-hole VR force task icon" />
+              <div class="portfolio-item-label">Virtual Peg and Hole Force Task</div>
             </div>
           </div>
           <!-- Item 2 -->
@@ -10529,9 +10991,19 @@
               <div class="portfolio-item-label">Vision VR Experience</div>
             </div>
           </div>
-          <!-- Item 3 -->
+           <!-- Item 3 -->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid theme-aware-img" src="assets/img/portfolio/UltraleapUnity.png" data-light-src="assets/img/portfolio/UltraleapUnity.png" data-dark-src="assets/img/portfolio/UltraleapUnity-dark.png" alt="Ultraleap Unity mid-air interaction icon" />
+              <div class="portfolio-item-label">Mid-Air Interaction Without an HMD</div>
+            </div>
+          </div>
+          <!-- Item 4 -->
           <div class="col-md-6 col-lg-4">
-            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
               </div>
@@ -10882,6 +11354,166 @@
       </div>
     </div>
 
+    <!-- ========== CV MODAL ========== -->
+    <div class="cv-modal modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body pb-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-10">
+                  <h2 class="cv-modal-title text-secondary text-uppercase text-center mb-0" id="cvModalLabel">Dailyn Despradel CV</h2>
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+
+                  <div class="cv-profile">
+                    <section class="cv-section">
+                      <div class="cv-section-heading">
+                        <span class="cv-section-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <h3>Education</h3>
+                      </div>
+                      <div class="cv-timeline">
+                        <article class="cv-timeline-item">
+                          <h4>Ph.D. in Mechanical Engineering, Carnegie Mellon University</h4>
+                          <p class="cv-date">Defense Oct 2026 - Graduation Dec 2026</p>
+                          <p>Human-Computer Interaction focus with research in adaptive XR, neuromechanics, and intent-aware interaction.</p>
+                        </article>
+                        <article class="cv-timeline-item">
+                          <h4>M.S. in Electrical and Computer Engineering, New York Institute of Technology</h4>
+                          <p class="cv-date">May 2021</p>
+                        </article>
+                        <article class="cv-timeline-item">
+                          <h4>B.S. in Biology, Mercy College</h4>
+                          <p class="cv-date">May 2018</p>
+                        </article>
+                      </div>
+                    </section>
+
+                    <section class="cv-section">
+                      <div class="cv-section-heading">
+                        <span class="cv-section-icon"><i class="fas fa-briefcase"></i></span>
+                        <h3>Work Experience</h3>
+                      </div>
+                      <div class="cv-timeline">
+                        <article class="cv-timeline-item">
+                          <h4>Research Scientist Intern, Meta</h4>
+                          <p class="cv-date">Oct 2025 - Mar 2026</p>
+                          <p>User Experience and Robotics Systems work focused on myoelectric interaction prototypes and accessible XR interaction techniques.</p>
+                        </article>
+                        <article class="cv-timeline-item">
+                          <h4>Vision Pro Ergonomics / Product Design Analyst Intern, Apple</h4>
+                          <p class="cv-date">Apr 2025 - Sep 2025</p>
+                          <p>Vision Pro Group internship connecting product design, ergonomics, and immersive interaction evaluation.</p>
+                        </article>
+                      </div>
+                    </section>
+
+                    <section class="cv-section">
+                      <div class="cv-section-heading">
+                        <span class="cv-section-icon"><i class="fas fa-flask"></i></span>
+                        <h3>PhD Research Experience</h3>
+                      </div>
+                      <div class="cv-timeline">
+                        <article class="cv-timeline-item">
+                          <h4>NeuroMechatronics Lab, Carnegie Mellon University</h4>
+                          <p class="cv-date">Adaptive Extended Reality (XR) Interactions</p>
+                          <p>Research lead developing adaptive and intent-aware XR interactions using sEMG, gaze, motion, and hand kinematics.</p>
+                        </article>
+                        <article class="cv-timeline-item">
+                          <h4>Multimodal XR Interaction Systems</h4>
+                          <p class="cv-date">Unity, Unreal Engine, sensing, and ML pipelines</p>
+                          <p>Build user-data-driven pipelines for force-aware and intent-aware XR adaptation, object manipulation, and immersive 2D/3D experiences.</p>
+                        </article>
+                      </div>
+                    </section>
+
+                    <section class="cv-section">
+                      <div class="cv-section-heading">
+                        <span class="cv-section-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+                        <h3>Skills</h3>
+                      </div>
+                      <div class="cv-skill-groups">
+                        <div class="cv-skill-group">
+                          <h4>Research & Domain Expertise</h4>
+                          <div class="cv-chip-list">
+                            <span>Human-Computer Interaction</span>
+                            <span>XR</span>
+                            <span>Adaptive Interfaces</span>
+                            <span>Physiological Computing</span>
+                            <span>Neuromechanics</span>
+                            <span>Object Manipulation</span>
+                            <span>Accessible Interaction Design</span>
+                          </div>
+                        </div>
+                        <div class="cv-skill-group">
+                          <h4>Creative & Technical Tools</h4>
+                          <div class="cv-chip-list">
+                            <span>Unity</span>
+                            <span>Unreal Engine</span>
+                            <span>WebXR</span>
+                            <span>Blender</span>
+                            <span>Fusion 360</span>
+                            <span>SolidWorks</span>
+                            <span>NX</span>
+                          </div>
+                        </div>
+                        <div class="cv-skill-group">
+                          <h4>Programming & Data</h4>
+                          <div class="cv-chip-list">
+                            <span>Python</span>
+                            <span>C#</span>
+                            <span>Unreal Blueprints</span>
+                            <span>Signal Processing</span>
+                            <span>Machine Learning Pipelines</span>
+                          </div>
+                        </div>
+                        <div class="cv-skill-group">
+                          <h4>Sensing & Capture</h4>
+                          <div class="cv-chip-list">
+                            <span>sEMG</span>
+                            <span>Eye Tracking</span>
+                            <span>Hand Tracking</span>
+                            <span>Vicon Motion Capture</span>
+                            <span>3D Scanning</span>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="cv-section">
+                      <div class="cv-section-heading">
+                        <span class="cv-section-icon"><i class="fas fa-book-open"></i></span>
+                        <h3>Publications</h3>
+                      </div>
+                      <div class="cv-timeline">
+                        <article class="cv-timeline-item">
+                          <h4>A Wearable Myoelectric Sensor Enables Human-Machine Interaction for People with Tetraplegia</h4>
+                          <p class="cv-date">Science Robotics - Under Review</p>
+                          <p>D. Despradel, et al.</p>
+                        </article>
+                      </div>
+                    </section>
+
+                  </div>
+
+                  <div class="cv-actions">
+                    <a class="btn btn-primary cv-download-btn" href="assets/Dailyn_Despradel_CV.pdf" download>
+                      <i class="fas fa-download fa-fw"></i>
+                      Download CV
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ========== CONTACT SECTION ========== -->
     <section class="page-section" id="contact">
       <div class="container">
@@ -10951,7 +11583,7 @@
     <!-- ========== PORTFOLIO MODALS ========== -->
 
     <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -10959,29 +11591,55 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Extended Reality Environments</h2>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Title">Virtual Reality Peg-and-Hole Force Task</h2>
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                   </div>
-                  <hr />
-                  <p class="mb-4"><strong>AUGMENTED REALITY</strong></p>
-                  <hr />
-                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/augmeted reality.jpg" alt="..." />
+                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/PegHoleForce.gif" alt="Peg hole force interaction demo" />
                   <p class="mb-4" style="text-align: justify;">
-                    Augmented reality is an interactive experience that enhances the real work with computer-generated perceptual information. Thus augmented reality interactions combines virtual information with the real world.
+                    This project implements a VR peg-and-hole task designed to study force control during object manipulation. Participants place colored pegs into matching 
+                    holes while applying specific trigger-force levels with a VR controller.
                   </p>
-                  <p class="mb-4" style="text-align: justify;">TO BE CONTINUED....</p>
+                  <p class="mb-4" style="text-align: justify;">
+                    Each trial presents a different peg-and-hole configuration, which is displayed in the scene 
+                    for participants to follow. The required force ranges associated with each peg color are randomized between trials, requiring participants to adapt their force 
+                    output throughout the experiment.
+                  </p>
+                  <p class="mb-4" style="text-align: justify;">
+                    There are two main scenes in the environment:
+                    <code class="scene-code">InitialInteractionScene_ControllerTracking_Task.unity</code>,
+                    a controller-based peg-and-hole task with force-sensitive placement, and
+                    <code class="scene-code">HandTrackingScene.unity</code>,
+                    which records finger joint data for hand pose and motion analysis.
+                  </p>
 
-                  <hr />
-                  <p class="mb-4"><strong>MIXED REALITY</strong></p>
-                  <hr />
-                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/mixed%20reality.png" alt="..." />
+                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/PegTASK.png" alt="Peg task board with red and green pegs" />
+
                   <p class="mb-4" style="text-align: justify;">
-                    Mixed reality is a combination of the physical and digital worlds, where real-world elements are augmented with computer-generated sensory input
+                    Participants are presented with a board containing red and green pegs and a visual configuration indicating where each peg should be placed.
                   </p>
-                  <p class="mb-4" style="text-align: justify;">TO BE CONTINUED....</p>
+
+                  <p class="mb-4" style="text-align: justify;">
+                    To successfully complete the task, participants must:
+                  </p>
+
+                  <ul class="mb-4 scene-list">
+                    <li>Follow the displayed peg-and-hole configuration.</li>
+                    <li>Insert each peg into the matching colored hole.</li>
+                    <li>Apply the correct controller trigger force for that peg color.</li>
+                  </ul>
+
+                  <p class="mb-4" style="text-align: justify;">
+                    A peg is accepted only when both the correct location and the correct force range are achieved.
+                  </p>
+                  
+                  <p class="mb-4" style="text-align: justify;">
+                    The complete implementation of the environment is available in the
+                    <a href="https://github.com/DailynDespradel/Peg-and-Hole-VR-" target="_blank" rel="noopener">GitHub repository</a>.
+                    It contains comprehensive documentation, installation instructions, source code, experimental configurations, demonstration videos, and supplementary materials for users interested in exploring or reproducing the project.
+                  </p>
 
                   <button class="btn btn-primary" data-bs-dismiss="modal">
                     <i class="fas fa-xmark fa-fw"></i> Close Window
@@ -10995,7 +11653,7 @@
     </div>
 
     <!-- Portfolio Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -11003,14 +11661,14 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">How Do you See the world VR Experience</h2>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Title">How Do you See the world VR Experience</h2>
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                   </div>
 
-                  <iframe class="img-fluid rounded mb-5" width="560" height="300" style="height: 400px !important;" src="https://www.youtube.com/embed/qpcqHmuG72w?start=8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe class="img-fluid rounded mb-5" width="560" height="300" style="height: 400px !important;" src="https://www.youtube.com/embed/qpcqHmuG72w?start=8" title="How Do You See the World VR Experience video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                   <p class="mb-4" style="text-align: justify;">
                     This project, undertaken by Dailyn Despradel in collaboration with Muzhe Wu and Zixin Yang, aimed to enhance understanding of visual impairments through immersive simulation. We designed an interactive learning experience to educate those with normal vision about the challenges faced by individuals with cataracts, glaucoma, and color blindness. Participants navigated through simulated environments—living room, kitchen, and basement—each designed to replicate the visual obstacles associated with these conditions. Tasks in these environments were carefully crafted based on research to offer a genuine experience of the difficulties encountered in daily life due to these impairments.
@@ -11035,7 +11693,7 @@
     </div>
 
     <!-- Portfolio Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -11043,29 +11701,25 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Inclusive/Diverse Hand Gif Library</h2>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Title">Ultraleap Hand Tracking Demo</h2>
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                   </div>
-                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/BlenderHands.png" alt="..." />
+                  <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Ultraleapenvironment.gif" alt="Ultraleap Unity demo" />
                   <p class="mb-4" style="text-align: justify;">
-                    I (alongside
-                    <a href="https://www.linkedin.com/in/matthew-weber-a37982325/" target="_blank">Matthew Weber</a>)
-                    have developed an inclusive and diverse hand gesture animation library designed for researchers conducting hand gesture recognition experiments. This library empowers participants by allowing them to choose how they are represented during experimental sessions, promoting <strong>personalization</strong> and giving them personalization <strong> a voice in the process</strong>.
+                    I developed a collection of controller-free interactive environments in Unity using the Ultraleap Hand Tracking SDK. Designed for desktop use without a VR headset, these applications demonstrate how users can naturally interact with digital content using only their hands through real-time optical hand tracking.
                   </p>
+
                   <p class="mb-4" style="text-align: justify;">
-                    The animations were created using three key tools:
-                    <a href="http://www.makehumancommunity.org/" target="_blank">MakeHuman</a>,
-                    <a href="https://www.blender.org/" target="_blank">Blender</a>,
-                    and
-                    <a href="https://krita.org/en/" target="_blank">Krita</a>.
-                    MakeHuman enabled the selection of models with the appropriate gender, age, and ethnicity. Blender was used for precise rigging and animation, focusing on wrist and finger movements. Finally, Krita was employed to convert these animations into Graphics Interchange Format (GIFs) for seamless integration into graphical user interfaces (GUIs).
+                    The project includes multiple example environments showcasing different interaction techniques, such as object manipulation, gesture-based input, interactive games, and fun experiences. Together, these examples provide a foundation for researchers and developers interested in hand tracking, human-computer interaction, accessibility, and next-generation user interfaces.
                   </p>
+
                   <p class="mb-4" style="text-align: justify;">
-                    The library includes the following components: It contains meshes representing <strong>Caucasian, African, Asian, default, and toon models, with variations for middle-aged and elderly individuals</strong>. These models are available for both <strong>male and female</strong>, including <strong>left and right hand variations</strong>. The library features animations for <strong>finger flexion and extension, wrist flexion and extension, radial and ulnar deviation, as well as wrist supination and pronation</strong>. The library, which includes Blender files and GIFs for easy integration into GUIs, can be found in the following
-                    <a href="https://github.com/DailynDespradel/Inclusive-and-Diverse-Hand-Gesture-Animation-Library" target="_blank">GitHub repository</a>.
+                    The complete Unity project, documentation, setup instructions, and source code are available on
+                    <a href="https://github.com/DailynDespradel/UltraleapUnity" target="_blank" rel="noopener">GitHub</a>,
+                    where you can explore the environments, reproduce the examples, and build upon the provided interaction techniques.
                   </p>
 
                   <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -11080,7 +11734,7 @@
     </div>
 
     <!-- Portfolio Modal 4 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -11088,7 +11742,7 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Meta and CMU Spinal Cord Injury Collaboration</h2>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Title">Meta and CMU Spinal Cord Injury Collaboration</h2>
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -11121,7 +11775,7 @@
     </div>
 
     <!-- Portfolio Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -11129,7 +11783,7 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Title">
                     Neuromechanics of Object Manipulation in VR and The Physical Environment
                   </h2>
                   <div class="divider-custom">
@@ -11196,7 +11850,7 @@
     </div>
 
     <!-- Portfolio Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6Title" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -11204,7 +11858,7 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Blender Portfolio</h2>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal6Title">Blender Portfolio</h2>
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -11269,9 +11923,9 @@
     <script>
       window.addEventListener("load", function () {
         const avatar = document.getElementById("mastheadAvatar");
-        const resume = document.getElementById("resumeFollow");
+        const avatarLink = avatar ? avatar.closest(".avatar-container") : null;
 
-        if (!avatar || !resume) return;
+        if (!avatar || !avatarLink) return;
 
         function startAvatarReaction() {
           avatar.classList.add("avatar-reacting");
@@ -11281,476 +11935,11 @@
           avatar.classList.remove("avatar-reacting");
         }
 
-        avatar.addEventListener("mouseenter", function () {
-          resume.classList.add("active");
-        });
-
-        avatar.addEventListener("mouseleave", function (e) {
-          if (resume.contains(e.relatedTarget)) return;
-          resume.classList.remove("active");
-          stopAvatarReaction();
-        });
-
-        resume.addEventListener("mouseenter", startAvatarReaction);
-        resume.addEventListener("focus", startAvatarReaction);
-        resume.addEventListener("mouseleave", function (e) {
-          if (avatar.contains(e.relatedTarget)) {
-            stopAvatarReaction();
-            return;
-          }
-          resume.classList.remove("active");
-          stopAvatarReaction();
-        });
-        resume.addEventListener("blur", function () {
-          resume.classList.remove("active");
-          stopAvatarReaction();
-        });
+        avatarLink.addEventListener("mouseenter", startAvatarReaction);
+        avatarLink.addEventListener("focus", startAvatarReaction);
+        avatarLink.addEventListener("mouseleave", stopAvatarReaction);
+        avatarLink.addEventListener("blur", stopAvatarReaction);
       });
     </script>
-    <!-- ========== CUSTOM CSS (kept in-file per your choice) ========== -->
-    <style>
-      /* Global niceties */
-      html { scroll-behavior: smooth; }
-
-      /* ===== Avatar Animation ===== */
-      .avatar-container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 3rem;
-        animation: avatar-walk 7.5s ease-in-out infinite;
-        color: inherit;
-        cursor: pointer;
-        text-decoration: none;
-        transform-origin: 50% 100%;
-      }
-
-      .avatar-container:focus-visible {
-        outline: 4px solid rgba(255, 255, 255, 0.9);
-        outline-offset: 0.5rem;
-      }
-
-      .masthead-avatar {
-        width: 400px !important;
-        height: auto !important;
-        display: block;
-        margin: 0 auto;
-        animation: avatar-bob 0.9s ease-in-out infinite;
-        cursor: inherit;
-      }
-
-      .masthead-avatar svg,
-      .masthead-avatar img {
-        display: block;
-        height: auto;
-        width: 100%;
-      }
-
-      .avatar-container:hover .masthead-avatar {
-        animation-duration: 0.72s;
-      }
-
-      .masthead-avatar.avatar-reacting {
-        animation: avatar-react 0.82s ease-in-out infinite;
-      }
-
-      .masthead-avatar.avatar-reacting .dailyn-earring-swing {
-        animation-duration: 1.25s !important;
-      }
-
-      @keyframes avatar-walk {
-        0%, 100% { transform: translateX(-32px) rotate(-1.5deg); }
-        25% { transform: translateX(14px) rotate(1deg); }
-        50% { transform: translateX(34px) rotate(1.5deg); }
-        75% { transform: translateX(-10px) rotate(-1deg); }
-      }
-
-      @keyframes avatar-bob {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
-      }
-
-      @keyframes avatar-react {
-        0%, 100% { transform: translateY(0) scale(1.02) rotate(-0.8deg); }
-        50% { transform: translateY(-10px) scale(1.055) rotate(1deg); }
-      }
-
-      @media (max-width: 768px) {
-        .avatar-container {
-          margin-bottom: 2rem;
-          max-width: 100%;
-        }
-
-        .masthead-avatar { width: min(72vw, 260px) !important; }
-
-        .resume-follow {
-          left: calc(50% + 3.2rem);
-          padding: 0.65rem 0.95rem;
-          top: 18.5rem;
-        }
-
-        @keyframes avatar-walk {
-          0%, 100% { transform: translateX(-14px) rotate(-1.2deg); }
-          25% { transform: translateX(8px) rotate(0.8deg); }
-          50% { transform: translateX(14px) rotate(1.2deg); }
-          75% { transform: translateX(-6px) rotate(-0.8deg); }
-        }
-      }
-
-      @media (max-width: 420px) {
-        .avatar-container {
-          margin-bottom: 1.5rem;
-        }
-
-        .masthead-avatar { width: min(76vw, 230px) !important; }
-
-        .resume-follow {
-          left: 50%;
-          top: 17.2rem;
-        }
-
-        @keyframes avatar-bob {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .avatar-container,
-        .masthead-avatar {
-          animation: none !important;
-        }
-      }
-
-      /* ===== Clickable Resume Bubble ===== */
-      .resume-follow {
-        position: absolute !important;
-        left: calc(50% + 4.75rem);
-        top: 23rem;
-
-        background: rgba(7, 24, 48, 0.92);
-        color: #9ee6ff;
-
-        padding: 0.85rem 1.25rem;
-        border-radius: 999px;
-
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-
-        font-weight: 700;
-        font-size: clamp(0.92rem, 2.2vw, 1.25rem);
-        text-decoration: none;
-
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-
-        box-shadow: 0 0.85rem 1.75rem rgba(0,0,0,0.22);
-        z-index: 4;
-
-        transform: translate(-50%, -50%);
-        transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
-      }
-
-      .resume-follow.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
-
-      .resume-follow:hover,
-      .resume-follow:focus-visible {
-        background: rgba(7, 24, 48, 1);
-        color: #ffffff;
-        box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
-        transform: translate(-50%, -50%) scale(1.06);
-      }
-      /* ===== About: Bubble Map ===== */
-      .bubble-map {
-        position: relative;
-        width: 500px;
-        height: 500px;
-        margin: 2rem auto;
-        overflow: visible;
-      }
-      .center-bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 400px;
-        height: 400px;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        overflow: hidden;
-        z-index: 1;
-      }
-      .about-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 140px; 
-        height: 140px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.9);
-        color: #3BAFDA;
-        font-weight: 700;
-        font-size: 1.05rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
-        cursor: pointer;
-        z-index: 3;
-      }
-      .bubble-top {
-        animation: bubble-float-y-centered 6s ease-in-out infinite;
-        top: 40px;
-        transform: translateX(-50%);
-      }
-      .bubble-right {
-        animation: bubble-float-side 6s ease-in-out infinite;
-        left: auto;
-        right: 20px;
-        transform: translateY(-50%);
-      }
-      .bubble-bottom {
-        animation: bubble-float-y-centered 6s ease-in-out infinite;
-        bottom: 40px;
-        top: auto;
-        transform: translateX(-50%);
-      }
-      .bubble-left {
-        animation: bubble-float-side 6s ease-in-out infinite;
-        left: 20px;
-        transform: translateY(-50%);
-      }
-      .bubble:hover {
-        animation: none;
-        background-color: #3BAFDA;
-        color: #fff;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-      }
-      .bubble-top:hover {
-        transform: translateX(-50%) scale(1.08);
-      }
-      .bubble-right:hover {
-        transform: translateY(-50%) scale(1.08);
-      }
-      .bubble-bottom:hover {
-        transform: translateX(-50%) scale(1.08);
-      }
-      .bubble-left:hover {
-        transform: translateY(-50%) scale(1.08);
-      }
-      @keyframes bubble-float-y-centered {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50%      { transform: translateX(-50%) translateY(-6px); }
-      }
-      @keyframes bubble-float-side {
-        0%, 100% { transform: translateY(-50%) translateY(0); }
-        50%      { transform: translateY(-50%) translateY(-6px); }
-      }
-      @media (max-width: 768px) {
-        .bubble-map {
-          width: min(88vw, 360px);
-          height: min(88vw, 360px);
-        }
-
-        .center-bubble {
-          width: min(66vw, 270px);
-          height: min(66vw, 270px);
-        }
-
-        .bubble {
-          width: min(22vw, 86px);
-          height: min(22vw, 86px);
-          font-size: clamp(0.72rem, 3vw, 0.9rem);
-          padding: 0.35rem;
-        }
-
-        .bubble-top {
-          top: 5%;
-          transform: translateX(-50%);
-        }
-        .bubble-right {
-          left: auto;
-          right: 1%;
-          transform: translateY(-50%);
-        }
-        .bubble-bottom {
-          bottom: 5%;
-          top: auto;
-          transform: translateX(-50%);
-        }
-        .bubble-left {
-          left: 1%;
-          transform: translateY(-50%);
-        }
-
-        .bubble-top:hover {
-          transform: translateX(-50%) scale(1.06);
-        }
-        .bubble-right:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-        .bubble-bottom:hover {
-          transform: translateX(-50%) scale(1.06);
-        }
-        .bubble-left:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .bubble-map {
-          display: block;
-          height: min(92vw, 360px);
-          margin: 1.5rem auto 1rem;
-          overflow: visible;
-          width: min(92vw, 360px);
-        }
-
-        .center-bubble {
-          height: min(68vw, 275px);
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: min(68vw, 275px);
-        }
-
-        .bubble {
-          height: min(24vw, 92px);
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          width: min(24vw, 92px);
-        }
-
-        .bubble-top {
-          top: 3%;
-          transform: translateX(-50%);
-        }
-        .bubble-right {
-          left: auto;
-          right: 0;
-          transform: translateY(-50%);
-        }
-        .bubble-bottom {
-          bottom: 3%;
-          top: auto;
-          transform: translateX(-50%);
-        }
-        .bubble-left {
-          left: 0;
-          transform: translateY(-50%);
-        }
-
-        .bubble-top:hover {
-          transform: translateX(-50%) scale(1.06);
-        }
-        .bubble-right:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-        .bubble-bottom:hover {
-          transform: translateX(-50%) scale(1.06);
-        }
-        .bubble-left:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-      }
-
-      /* ===== Outreach: Bubble Map ===== */
-      .outreach-bubble-map {
-        position: relative;
-        width: 500px;
-        height: 500px;
-        margin: 3rem auto;
-        overflow: visible;
-      }
-      .outreach-center-bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 450px;
-        height: 450px;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        overflow: hidden;
-        z-index: 1;
-      }
-      .outreach-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-      .outreach-bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.9);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
-        cursor: pointer;
-        z-index: 3;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: outreach-float 6s ease-in-out infinite;
-      }
-      .bubble-content {
-        position: relative;
-        width: 100%; height: 100%;
-        border-radius: 50%; overflow: hidden;
-        display: flex; align-items: flex-end; justify-content: center;
-      }
-      .bubble-content img {
-        position: absolute; top: 0; left: 0;
-        width: 100%; height: 100%;
-        border-radius: 50%; object-fit: cover; z-index: 1;
-        transition: transform 0.3s ease;
-      }
-      .bubble-content span {
-        position: relative; z-index: 2;
-        background: rgba(0,0,0,0.55);
-        color: #fff; font-weight: 600; font-size: 0.9rem;
-        text-align: center; width: 100%; padding: 6px 0;
-        border-bottom-left-radius: 50%; border-bottom-right-radius: 50%;
-        line-height: 1.2;
-      }
-      .outreach-bubble:hover img { transform: scale(1.1); }
-      .outreach-bubble:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.25); }
-      @keyframes outreach-float {
-        0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
-        50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
-      }
-      @media (max-width: 400px) {
-        .outreach-bubble-map { width: 88vw; height: 88vw; }
-        .outreach-center-bubble { width: 62vw; height: 62vw; }
-        .outreach-bubble {
-          --orbit: 28vw !important;
-          width: 20vw;
-          height: 20vw;
-        }
-        .bubble-content span { font-size: 0.8rem; }
-      }
-
-      /* Remove native tooltip popups globally on images with alt */
-      img[alt]:hover::after { content: none !important; }
-    </style>
   </body>
 </html>

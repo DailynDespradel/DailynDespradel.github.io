@@ -10,7 +10,6 @@
 window.addEventListener('DOMContentLoaded', event => {
 
     const themeToggle = document.body.querySelector('#themeToggle');
-    const themeToggleText = themeToggle ? themeToggle.querySelector('.theme-toggle-text') : null;
     const getStoredTheme = function () {
         try {
             return window.localStorage.getItem('site-theme');
@@ -30,16 +29,15 @@ window.addEventListener('DOMContentLoaded', event => {
         document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
         storeTheme(isDark ? 'dark' : 'light');
 
-        if (!themeToggle) {
-            return;
-        }
+        document.querySelectorAll('.theme-toggle').forEach(function (toggle) {
+            const toggleText = toggle.querySelector('.theme-toggle-text');
+            toggle.setAttribute('aria-pressed', isDark.toString());
+            toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 
-        themeToggle.setAttribute('aria-pressed', isDark.toString());
-        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-
-        if (themeToggleText) {
-            themeToggleText.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
-        }
+            if (toggleText) {
+                toggleText.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+            }
+        });
 
         document.querySelectorAll('.theme-aware-img').forEach(function (image) {
             const nextSource = isDark ? image.dataset.darkSrc : image.dataset.lightSrc;
@@ -48,15 +46,33 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     };
+    const bindThemeToggle = function (toggle) {
+        if (!toggle || toggle.dataset.themeBound === 'true') {
+            return;
+        }
 
-    applyTheme(getStoredTheme() || document.documentElement.dataset.theme || 'light');
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
+        toggle.dataset.themeBound = 'true';
+        toggle.addEventListener('click', function () {
             const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
             applyTheme(nextTheme);
         });
-    }
+    };
+    const createFloatingThemeToggle = function () {
+        if (!themeToggle || document.body.querySelector('.floating-theme-toggle')) {
+            return null;
+        }
+
+        const floatingToggle = themeToggle.cloneNode(true);
+        floatingToggle.removeAttribute('id');
+        floatingToggle.classList.add('floating-theme-toggle');
+        document.body.appendChild(floatingToggle);
+        bindThemeToggle(floatingToggle);
+        return floatingToggle;
+    };
+
+    createFloatingThemeToggle();
+    applyTheme(getStoredTheme() || document.documentElement.dataset.theme || 'light');
+    bindThemeToggle(themeToggle);
 
     // Navbar shrink function
     var navbarShrink = function () {

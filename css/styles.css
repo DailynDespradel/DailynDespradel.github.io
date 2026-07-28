@@ -10976,7 +10976,23 @@ html {
   line-height: 2.75rem;
 }
 .masthead .masthead-subheading {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 54rem;
+  text-transform: none;
+}
+.masthead .masthead-subheading span {
+  border-top: 0.125rem solid rgba(255, 255, 255, 0.65);
+  display: block;
+  font-size: 0.94em;
+  font-weight: 400;
+  margin: 0.55rem auto 0;
+  max-width: 34rem;
+  padding-top: 0.55rem;
 }
 .masthead .masthead-avatar {
   width: 15rem;
@@ -11008,7 +11024,7 @@ html {
     line-height: 3.5rem;
   }
   .masthead .masthead-subheading {
-    font-size: 1.5rem;
+    font-size: 1.18rem;
   }
 }
 .portfolio .portfolio-item {
@@ -11035,6 +11051,10 @@ html {
   font-size: 1.5rem;
 }
 
+.portfolio .portfolio-item-placeholder {
+  cursor: default;
+}
+
 .portfolio .portfolio-item .portfolio-item-label {
   position: absolute;
   right: 0.85rem;
@@ -11049,6 +11069,12 @@ html {
   pointer-events: none;
   text-align: center;
   text-transform: uppercase;
+}
+
+.scene-list,
+.scene-list li {
+  text-align: left !important;
+  text-justify: auto;
 }
 
 .portfolio-modal .btn-close {
@@ -11101,13 +11127,154 @@ h6,
 .masthead-heading,
 .masthead-subheading,
 .page-section-heading,
-.portfolio-modal-title {
+.portfolio-modal-title,
+.cv-modal-title {
   font-family: var(--site-font-mono) !important;
 }
 
 .masthead-heading,
 .page-section-heading {
   font-weight: 700 !important;
+}
+
+.cv-modal-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.cv-profile {
+  display: grid;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.cv-section {
+  background: #f5f8fb;
+  border: 0.125rem solid rgba(44, 62, 80, 0.12);
+  border-radius: 0.75rem;
+  color: #2c3e50;
+  padding: 1.75rem;
+}
+
+.cv-section-heading {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.45rem;
+}
+
+.cv-section-icon {
+  align-items: center;
+  border: 0.2rem solid #3BAFDA;
+  border-radius: 0.55rem;
+  color: #3BAFDA;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+
+.cv-section-heading h3 {
+  color: #2c3e50;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.cv-timeline {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cv-timeline-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 0.1rem solid rgba(44, 62, 80, 0.1);
+  border-radius: 0.45rem;
+  padding: 1rem 1rem 1rem 1.25rem;
+  position: relative;
+}
+
+.cv-timeline-item::before {
+  background: #3BAFDA;
+  border-radius: 999px;
+  content: "";
+  height: calc(100% - 1.4rem);
+  left: 0.45rem;
+  position: absolute;
+  top: 0.7rem;
+  width: 0.22rem;
+}
+
+.cv-timeline-item h4,
+.cv-skill-group h4 {
+  color: #20262d;
+  font-family: var(--site-font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.45rem;
+}
+
+.cv-timeline-item p,
+.cv-skill-group p {
+  color: #5c6670;
+  font-family: var(--site-font-sans);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.cv-date {
+  background: rgba(59, 175, 218, 0.12);
+  border-radius: 999px;
+  color: #178ec0 !important;
+  display: inline-flex;
+  font-family: var(--site-font-mono) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.65rem !important;
+  padding: 0.25rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.cv-skill-groups {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.cv-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cv-chip-list span {
+  background: #ffffff;
+  border: 0.125rem solid rgba(44, 62, 80, 0.16);
+  border-radius: 999px;
+  color: #2c3e50;
+  font-family: var(--site-font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.6rem 0.95rem;
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cv-download-btn {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
 }
 
 html {
@@ -11150,22 +11317,16 @@ body,
   align-items: center;
   background: #eceef2;
   border: 0;
-  border-radius: 0.45rem;
+  border-radius: 999px;
   color: #20262d;
   display: inline-flex;
-  height: 2.7rem;
+  gap: 0.55rem;
+  min-height: 2.7rem;
   justify-content: center;
   margin: 0;
-  padding: 0;
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
-  width: 2.7rem;
-  z-index: 2000;
-}
-
-body.modal-open .theme-toggle {
-  right: 4.7rem;
+  padding: 0.5rem 0.7rem 0.5rem 0.9rem;
+  position: static;
+  z-index: 1;
 }
 
 .navbar-actions {
@@ -11173,7 +11334,6 @@ body.modal-open .theme-toggle {
   display: flex;
   gap: 0.75rem;
   margin-left: auto;
-  padding-right: 3.2rem;
 }
 
 .theme-toggle:hover,
@@ -11184,11 +11344,27 @@ body.modal-open .theme-toggle {
   outline: none;
 }
 
+.theme-toggle-label {
+  font-family: var(--site-font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.theme-toggle-icon-wrap {
+  align-items: center;
+  display: inline-flex;
+  height: 1.7rem;
+  justify-content: center;
+  width: 1.7rem;
+}
+
 .theme-toggle-icon {
   display: block;
-  height: 1.55rem;
+  height: 1.35rem;
   position: relative;
-  width: 1.55rem;
+  width: 1.35rem;
 }
 
 .theme-toggle-icon-moon {
@@ -11234,19 +11410,75 @@ body.modal-open .theme-toggle {
     -0.5rem 0.5rem 0 currentColor;
 }
 
+.floating-theme-toggle {
+  align-items: center;
+  background: #f4f9ff;
+  border-radius: 50%;
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.28);
+  color: #20262d;
+  display: none;
+  height: 4rem;
+  min-height: 4rem;
+  padding: 0;
+  position: fixed;
+  right: 2rem;
+  bottom: 1.75rem;
+  top: auto;
+  width: 4rem;
+  z-index: 1080;
+}
+
+body.modal-open .floating-theme-toggle {
+  display: inline-flex;
+}
+
+body.modal-open #mainNav #themeToggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-theme-toggle .theme-toggle-label {
+  display: none;
+}
+
+.floating-theme-toggle .theme-toggle-icon-wrap {
+  height: 1.65rem;
+  width: 1.65rem;
+}
+
+.floating-theme-toggle .theme-toggle-icon {
+  height: 1.32rem;
+  width: 1.32rem;
+}
+
 @media (min-width: 992px) {
   .navbar-actions {
     order: 3;
   }
 
-  .theme-toggle {
-    margin: 0;
+  .portfolio-modal .modal-xl,
+  .Outreach-modal .modal-xl,
+  .cv-modal .modal-xl {
+    max-width: min(82vw, 66rem);
+  }
+
+  .portfolio-modal .modal-dialog,
+  .Outreach-modal .modal-dialog,
+  .cv-modal .modal-dialog {
+    margin-top: 5.25rem;
   }
 }
 
 html[data-theme="dark"] body {
   background-color: #050d1c;
   color: #e2efff;
+}
+
+html[data-theme="dark"] .floating-theme-toggle,
+html[data-theme="dark"] .floating-theme-toggle:hover,
+html[data-theme="dark"] .floating-theme-toggle:focus-visible {
+  background: #f4f9ff;
+  color: #20262d;
 }
 
 html[data-theme="dark"] #mainNav,
@@ -11313,6 +11545,7 @@ html[data-theme="dark"] .portfolio-modal .modal-content {
   color: #e2efff;
 }
 
+html[data-theme="dark"] .cv-modal .modal-content,
 html[data-theme="dark"] .Outreach-modal .modal-content,
 html[data-theme="dark"] #modalAfroLatina .modal-content,
 html[data-theme="dark"] #modalAdventurer .modal-content,
@@ -11322,6 +11555,7 @@ html[data-theme="dark"] #modalDogMom .modal-content {
   color: #e2efff !important;
 }
 
+html[data-theme="dark"] .cv-modal .modal-header,
 html[data-theme="dark"] .Outreach-modal .modal-header,
 html[data-theme="dark"] #modalAfroLatina .modal-header,
 html[data-theme="dark"] #modalAdventurer .modal-header,
@@ -11331,6 +11565,7 @@ html[data-theme="dark"] #modalDogMom .modal-header {
 }
 
 html[data-theme="dark"] .portfolio-modal .btn-close,
+html[data-theme="dark"] .cv-modal .btn-close,
 html[data-theme="dark"] .Outreach-modal .btn-close,
 html[data-theme="dark"] #modalAfroLatina .btn-close,
 html[data-theme="dark"] #modalAdventurer .btn-close,
@@ -11342,6 +11577,7 @@ html[data-theme="dark"] #modalDogMom .btn-close {
 
 html[data-theme="dark"] .text-secondary,
 html[data-theme="dark"] .portfolio-modal-title,
+html[data-theme="dark"] .cv-modal-title,
 html[data-theme="dark"] .page-section-heading,
 html[data-theme="dark"] .outreach-modal-title,
 html[data-theme="dark"] #modalAfroLatina .modal-title,
@@ -11349,6 +11585,38 @@ html[data-theme="dark"] #modalAdventurer .modal-title,
 html[data-theme="dark"] #modalPictures .modal-title,
 html[data-theme="dark"] #modalDogMom .modal-title {
   color: #d8efff !important;
+}
+
+html[data-theme="dark"] .cv-section {
+  background: #10243d;
+  border-color: #25496d;
+  color: #e2efff;
+}
+
+html[data-theme="dark"] .cv-section-heading h3,
+html[data-theme="dark"] .cv-timeline-item h4,
+html[data-theme="dark"] .cv-skill-group h4 {
+  color: #d8efff;
+}
+
+html[data-theme="dark"] .cv-timeline-item {
+  background: rgba(7, 24, 48, 0.72);
+  border-color: rgba(125, 211, 252, 0.16);
+}
+
+html[data-theme="dark"] .cv-timeline-item p {
+  color: #b8c7d6;
+}
+
+html[data-theme="dark"] .cv-date {
+  background: rgba(125, 211, 252, 0.12);
+  color: #7dd3fc !important;
+}
+
+html[data-theme="dark"] .cv-chip-list span {
+  background: #071830;
+  border-color: #25496d;
+  color: #e2efff;
 }
 
 html[data-theme="dark"] .divider-custom .divider-custom-line {
@@ -11426,14 +11694,8 @@ html[data-theme="dark"] .bg-primary {
   }
 
   .theme-toggle {
-    height: 2.45rem;
-    right: 0.75rem;
-    top: 0.75rem;
-    width: 2.45rem;
-  }
-
-  body.modal-open .theme-toggle {
-    right: 3.85rem;
+    min-height: 2.45rem;
+    padding: 0.45rem 0.6rem 0.45rem 0.7rem;
   }
 
   .navbar-actions {
@@ -11481,7 +11743,8 @@ html[data-theme="dark"] .bg-primary {
   }
 
   .masthead .masthead-subheading {
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-size: clamp(0.82rem, 3.4vw, 1rem);
+    max-width: 92%;
   }
 
   .portfolio .portfolio-item .portfolio-item-label {
@@ -11494,6 +11757,23 @@ html[data-theme="dark"] .bg-primary {
   .portfolio-modal .modal-body {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+
+  .cv-section {
+    padding: 1.1rem;
+  }
+
+  .cv-section-heading {
+    gap: 0.75rem;
+  }
+
+  .cv-timeline-item {
+    padding: 0.9rem 0.9rem 0.9rem 1.1rem;
+  }
+
+  .cv-chip-list span {
+    font-size: 0.86rem;
+    padding: 0.55rem 0.75rem;
   }
 
   .portfolio-modal .btn-close {
@@ -11512,13 +11792,18 @@ html[data-theme="dark"] .bg-primary {
   }
 
   .theme-toggle {
-    height: 2.25rem;
-    width: 2.25rem;
+    gap: 0.4rem;
+    min-height: 2.25rem;
+    padding: 0.38rem 0.5rem 0.38rem 0.6rem;
+  }
+
+  .theme-toggle-label {
+    font-size: 0.68rem;
   }
 
   .theme-toggle-icon {
-    height: 1.32rem;
-    width: 1.32rem;
+    height: 1.18rem;
+    width: 1.18rem;
   }
 
   .masthead {
