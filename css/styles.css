@@ -11302,12 +11302,13 @@ body,
 #modalAfroLatina .modal-content,
 #modalAdventurer .modal-content,
 #modalPictures .modal-content,
+#modalArtsCrafts .modal-content,
 #modalDogMom .modal-content,
 .footer,
 .copyright,
 .resume-follow,
 .bubble,
-.outreach-bubble,
+.outreach-card,
 .portfolio .portfolio-item,
 .divider-custom .divider-custom-line {
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -11550,6 +11551,7 @@ html[data-theme="dark"] .Outreach-modal .modal-content,
 html[data-theme="dark"] #modalAfroLatina .modal-content,
 html[data-theme="dark"] #modalAdventurer .modal-content,
 html[data-theme="dark"] #modalPictures .modal-content,
+html[data-theme="dark"] #modalArtsCrafts .modal-content,
 html[data-theme="dark"] #modalDogMom .modal-content {
   background-color: #081426;
   color: #e2efff !important;
@@ -11560,6 +11562,7 @@ html[data-theme="dark"] .Outreach-modal .modal-header,
 html[data-theme="dark"] #modalAfroLatina .modal-header,
 html[data-theme="dark"] #modalAdventurer .modal-header,
 html[data-theme="dark"] #modalPictures .modal-header,
+html[data-theme="dark"] #modalArtsCrafts .modal-header,
 html[data-theme="dark"] #modalDogMom .modal-header {
   border-color: #25496d;
 }
@@ -11570,6 +11573,7 @@ html[data-theme="dark"] .Outreach-modal .btn-close,
 html[data-theme="dark"] #modalAfroLatina .btn-close,
 html[data-theme="dark"] #modalAdventurer .btn-close,
 html[data-theme="dark"] #modalPictures .btn-close,
+html[data-theme="dark"] #modalArtsCrafts .btn-close,
 html[data-theme="dark"] #modalDogMom .btn-close {
   filter: invert(91%) sepia(19%) saturate(586%) hue-rotate(180deg) brightness(104%) contrast(104%);
   opacity: 1;
@@ -11583,6 +11587,7 @@ html[data-theme="dark"] .outreach-modal-title,
 html[data-theme="dark"] #modalAfroLatina .modal-title,
 html[data-theme="dark"] #modalAdventurer .modal-title,
 html[data-theme="dark"] #modalPictures .modal-title,
+html[data-theme="dark"] #modalArtsCrafts .modal-title,
 html[data-theme="dark"] #modalDogMom .modal-title {
   color: #d8efff !important;
 }
@@ -11641,8 +11646,7 @@ html[data-theme="dark"] .portfolio .portfolio-item .portfolio-item-label {
 }
 
 html[data-theme="dark"] .resume-follow,
-html[data-theme="dark"] .bubble,
-html[data-theme="dark"] .outreach-bubble {
+html[data-theme="dark"] .bubble {
   background: rgba(12, 33, 58, 0.94);
   color: #9ee6ff;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);

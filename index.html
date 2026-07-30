@@ -186,11 +186,59 @@
         box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
       }
       /* ===== About: Bubble Map ===== */
+      .about-layout {
+        align-items: center;
+        display: flex;
+        gap: clamp(2rem, 5vw, 4.5rem);
+        justify-content: center;
+        margin: 2rem auto 0;
+        max-width: 1120px;
+      }
+
+      .about-copy {
+        max-width: 460px;
+        text-align: left;
+      }
+
+      .about-copy h3 {
+        color: #ffffff;
+        font-size: clamp(1.35rem, 3vw, 2rem);
+        font-weight: 700;
+        line-height: 1.18;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .about-copy p {
+        color: rgba(255, 255, 255, 0.94);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .about-interest-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.4rem;
+      }
+
+      .about-interest-list span {
+        background: rgba(255, 255, 255, 0.16);
+        border: 0.1rem solid rgba(255, 255, 255, 0.34);
+        border-radius: 999px;
+        color: #ffffff;
+        font-size: 0.84rem;
+        font-weight: 700;
+        padding: 0.5rem 0.78rem;
+      }
+
       .bubble-map {
         position: relative;
         width: 500px;
         height: 500px;
-        margin: 2rem auto;
+        flex: 0 0 auto;
+        margin: 0;
         overflow: visible;
       }
       .center-bubble {
@@ -213,17 +261,20 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 140px; 
-        height: 140px;
+	        width: 124px;
+	        height: 124px;
         border-radius: 50%;
-        background: rgba(255,255,255,0.9);
+	        background: rgba(255,255,255,0.76);
         color: #3BAFDA;
         font-weight: 700;
-        font-size: 1.05rem;
+	        font-size: 0.82rem;
+	        line-height: 1.12;
+	        padding: 0.9rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
+	        text-align: center;
+	        overflow: hidden;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
         cursor: pointer;
@@ -231,24 +282,24 @@
       }
       .bubble-top {
         animation: bubble-float-y-centered 6s ease-in-out infinite;
-        top: 40px;
+        top: -10px;
         transform: translateX(-50%);
       }
       .bubble-right {
         animation: bubble-float-side 6s ease-in-out infinite;
         left: auto;
-        right: 20px;
+        right: -10px;
         transform: translateY(-50%);
       }
       .bubble-bottom {
         animation: bubble-float-y-centered 6s ease-in-out infinite;
-        bottom: 40px;
+        bottom: -10px;
         top: auto;
         transform: translateX(-50%);
       }
       .bubble-left {
         animation: bubble-float-side 6s ease-in-out infinite;
-        left: 20px;
+        left: -10px;
         transform: translateY(-50%);
       }
       .bubble:hover {
@@ -266,9 +317,14 @@
       .bubble-bottom:hover {
         transform: translateX(-50%) scale(1.08);
       }
-      .bubble-left:hover {
-        transform: translateY(-50%) scale(1.08);
-      }
+	      .bubble-left:hover {
+	        transform: translateY(-50%) scale(1.08);
+	      }
+	      .bubble-label {
+	        display: block;
+	        max-width: 100%;
+	        overflow-wrap: anywhere;
+	      }
       @keyframes bubble-float-y-centered {
         0%, 100% { transform: translateX(-50%) translateY(0); }
         50%      { transform: translateX(-50%) translateY(-6px); }
@@ -277,10 +333,27 @@
         0%, 100% { transform: translateY(-50%) translateY(0); }
         50%      { transform: translateY(-50%) translateY(-6px); }
       }
-      @media (max-width: 768px) {
-        .bubble-map {
-          width: min(88vw, 360px);
-          height: min(88vw, 360px);
+	      @media (max-width: 992px) {
+	        .about-layout {
+	          flex-direction: column;
+	          gap: 2rem;
+	          margin-top: 1.5rem;
+	        }
+
+	        .about-copy {
+	          max-width: min(92vw, 650px);
+	          text-align: center;
+	        }
+
+	        .about-interest-list {
+	          justify-content: center;
+	        }
+	      }
+
+	      @media (max-width: 768px) {
+	        .bubble-map {
+	          width: min(88vw, 360px);
+	          height: min(88vw, 360px);
         }
 
         .center-bubble {
@@ -288,29 +361,29 @@
           height: min(66vw, 270px);
         }
 
-        .bubble {
-          width: min(22vw, 86px);
-          height: min(22vw, 86px);
-          font-size: clamp(0.72rem, 3vw, 0.9rem);
-          padding: 0.35rem;
-        }
+	        .bubble {
+	          width: min(21vw, 78px);
+	          height: min(21vw, 78px);
+	          font-size: clamp(0.55rem, 2.45vw, 0.72rem);
+	          padding: 0.35rem;
+	        }
 
         .bubble-top {
-          top: 5%;
+          top: 0;
           transform: translateX(-50%);
         }
         .bubble-right {
           left: auto;
-          right: 1%;
+          right: 0;
           transform: translateY(-50%);
         }
         .bubble-bottom {
-          bottom: 5%;
+          bottom: 0;
           top: auto;
           transform: translateX(-50%);
         }
         .bubble-left {
-          left: 1%;
+          left: 0;
           transform: translateY(-50%);
         }
 
@@ -323,10 +396,10 @@
         .bubble-bottom:hover {
           transform: translateX(-50%) scale(1.06);
         }
-        .bubble-left:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-      }
+	        .bubble-left:hover {
+	          transform: translateY(-50%) scale(1.06);
+	        }
+	      }
 
       @media (max-width: 575.98px) {
         .bubble-map {
@@ -346,16 +419,16 @@
           width: min(68vw, 275px);
         }
 
-        .bubble {
-          height: min(24vw, 92px);
-          left: 50%;
+	        .bubble {
+	          height: min(21vw, 78px);
+	          left: 50%;
           position: absolute;
           top: 50%;
-          width: min(24vw, 92px);
-        }
+	          width: min(21vw, 78px);
+	        }
 
         .bubble-top {
-          top: 3%;
+          top: 0;
           transform: translateX(-50%);
         }
         .bubble-right {
@@ -364,7 +437,7 @@
           transform: translateY(-50%);
         }
         .bubble-bottom {
-          bottom: 3%;
+          bottom: 0;
           top: auto;
           transform: translateX(-50%);
         }
@@ -382,90 +455,113 @@
         .bubble-bottom:hover {
           transform: translateX(-50%) scale(1.06);
         }
-        .bubble-left:hover {
-          transform: translateY(-50%) scale(1.06);
-        }
-      }
+	        .bubble-left:hover {
+	          transform: translateY(-50%) scale(1.06);
+	        }
+	      }
 
-      /* ===== Outreach: Bubble Map ===== */
-      .outreach-bubble-map {
-        position: relative;
-        width: 500px;
-        height: 500px;
-        margin: 3rem auto;
-        overflow: visible;
-      }
-      .outreach-center-bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 450px;
-        height: 450px;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        overflow: hidden;
-        z-index: 1;
-      }
-      .outreach-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-      .outreach-bubble {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.9);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle)));
-        cursor: pointer;
-        z-index: 3;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: outreach-float 6s ease-in-out infinite;
-      }
-      .bubble-content {
-        position: relative;
-        width: 100%; height: 100%;
-        border-radius: 50%; overflow: hidden;
-        display: flex; align-items: flex-end; justify-content: center;
-      }
-      .bubble-content img {
-        position: absolute; top: 0; left: 0;
-        width: 100%; height: 100%;
-        border-radius: 50%; object-fit: cover; z-index: 1;
-        transition: transform 0.3s ease;
-      }
-      .bubble-content span {
-        position: relative; z-index: 2;
-        background: rgba(0,0,0,0.55);
-        color: #fff; font-weight: 600; font-size: 0.9rem;
-        text-align: center; width: 100%; padding: 6px 0;
-        border-bottom-left-radius: 50%; border-bottom-right-radius: 50%;
-        line-height: 1.2;
-      }
-      .outreach-bubble:hover img { transform: scale(1.1); }
-      .outreach-bubble:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.25); }
-      @keyframes outreach-float {
-        0%,100% { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(0); }
-        50%     { transform: rotate(var(--angle)) translate(var(--orbit)) rotate(calc(-1 * var(--angle))) translateY(-6px); }
-      }
-      @media (max-width: 400px) {
-        .outreach-bubble-map { width: 88vw; height: 88vw; }
-        .outreach-center-bubble { width: 62vw; height: 62vw; }
-        .outreach-bubble {
-          --orbit: 28vw !important;
-          width: 20vw;
-          height: 20vw;
-        }
-        .bubble-content span { font-size: 0.8rem; }
-      }
+	      /* ===== Outreach: Story Cards ===== */
+	      .outreach-grid {
+	        display: grid;
+	        gap: 1.4rem;
+	        grid-template-columns: repeat(2, minmax(0, 1fr));
+	        margin: 3rem auto 0;
+	        max-width: 980px;
+	      }
+
+	      .outreach-card {
+	        align-items: center;
+	        background: #ffffff;
+	        border: 0;
+	        border-radius: 0.55rem;
+	        box-shadow: 0 0.65rem 1.2rem rgba(44, 62, 80, 0.14);
+	        color: #2c3e50;
+	        cursor: pointer;
+	        display: grid;
+	        grid-template-columns: 11rem 1fr;
+	        min-height: 11rem;
+	        overflow: hidden;
+	        padding: 0.9rem;
+	        text-align: left;
+	        transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.25s ease, color 0.25s ease;
+	        width: 100%;
+	      }
+
+	      .outreach-card:hover,
+	      .outreach-card:focus-visible {
+	        box-shadow: 0 1rem 1.8rem rgba(44, 62, 80, 0.22);
+	        transform: translateY(-4px);
+	      }
+
+	      .outreach-card img {
+	        aspect-ratio: 1 / 1;
+	        background: #ffffff;
+	        border: 0;
+	        border-radius: 50%;
+	        box-shadow: 0 0.35rem 0.85rem rgba(44, 62, 80, 0.18);
+	        height: auto;
+	        justify-self: center;
+	        object-fit: cover;
+	        width: 9rem;
+	      }
+
+	      .outreach-card-body {
+	        display: flex;
+	        flex-direction: column;
+	        justify-content: center;
+	        padding: 1.1rem 1.2rem;
+	      }
+
+	      .outreach-card-kicker {
+	        color: #3BAFDA;
+	        font-size: 0.78rem;
+	        font-weight: 700;
+	        letter-spacing: 0.08em;
+	        margin-bottom: 0.45rem;
+	        text-transform: uppercase;
+	      }
+
+	      .outreach-card-title {
+	        font-size: 1.15rem;
+	        font-weight: 700;
+	        line-height: 1.2;
+	        margin: 0 0 0.55rem;
+	      }
+
+	      .outreach-card-copy {
+	        color: #65737f;
+	        font-size: 0.9rem;
+	        line-height: 1.45;
+	        margin: 0;
+	      }
+
+	      html[data-theme="dark"] .outreach-card {
+	        background: rgba(12, 33, 58, 0.94);
+	        color: #d9f0ff;
+	        box-shadow: 0 0.7rem 1.4rem rgba(0, 0, 0, 0.32);
+	      }
+
+	      html[data-theme="dark"] .outreach-card-copy {
+	        color: rgba(217, 240, 255, 0.78);
+	      }
+
+	      @media (max-width: 768px) {
+	        .outreach-grid {
+	          grid-template-columns: 1fr;
+	        }
+	      }
+
+	      @media (max-width: 480px) {
+	        .outreach-card {
+	          grid-template-columns: 1fr;
+	          justify-items: center;
+	          text-align: center;
+	        }
+
+	        .outreach-card img {
+	          width: min(58vw, 11rem);
+	        }
+	      }
 
       /* Remove native tooltip popups globally on images with alt */
       img[alt]:hover::after { content: none !important; }
@@ -11060,71 +11156,96 @@
           <div class="divider-custom-line"></div>
         </div>
 
-        <!-- Bubble Map -->
-        <div class="bubble-map">
-          <!-- Center image circle -->
-          <div class="center-bubble">
-            <img src="assets/img/portfolio/Jumping of plane 2.png" alt="About Me" class="about-img" />
-          </div>
+	        <div class="about-layout">
+	          <!-- Bubble Map -->
+	          <div class="bubble-map" aria-label="Dailyn Despradel personal interests">
+	            <!-- Center image circle -->
+	            <div class="center-bubble">
+	              <img src="assets/img/portfolio/Jumping of plane 2.png" alt="Dailyn skydiving" class="about-img" />
+	            </div>
 
-          <!-- Text-based interactive bubbles -->
-          <div class="bubble bubble-right" data-bs-toggle="modal" data-bs-target="#modalAfroLatina">
-            Afro-Latina
-          </div>
-          <div class="bubble bubble-bottom" data-bs-toggle="modal" data-bs-target="#modalAdventurer">
-            Adventurer
-          </div>
-          <div class="bubble bubble-left" data-bs-toggle="modal" data-bs-target="#modalPictures">
-            Pictures
-          </div>
-          <div class="bubble bubble-top" data-bs-toggle="modal" data-bs-target="#modalDogMom">
-            Dog Mom
-          </div>
-        </div>
-      </div>
-    </section>
+	            <!-- Text-based interactive bubbles -->
+	            <div class="bubble bubble-right" data-bs-toggle="modal" data-bs-target="#modalArtsCrafts">
+	              <span class="bubble-label">Arts +<br />Crafts</span>
+	            </div>
+	            <div class="bubble bubble-bottom" data-bs-toggle="modal" data-bs-target="#modalAdventurer">
+	              <span class="bubble-label">Adventure<br />Photo</span>
+	            </div>
+	            <div class="bubble bubble-left" data-bs-toggle="modal" data-bs-target="#modalPictures">
+	              <span class="bubble-label">3D +<br />Animation</span>
+	            </div>
+	            <div class="bubble bubble-top" data-bs-toggle="modal" data-bs-target="#modalDogMom">
+	              <span class="bubble-label">Dog Mom</span>
+	            </div>
+	          </div>
 
-    <!-- ========== ABOUT MODALS ========== -->
-    <div class="modal fade" id="modalAfroLatina" tabindex="-1" aria-labelledby="modalAfroLatinaLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAfroLatinaLabel">Afro-Latina Identity</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            As an Afro-Latina, I’m deeply committed to increasing representation in XR and ensuring that our digital spaces reflect diverse cultural identities and lived experiences.
-          </div>
-          <img class="img-fluid" src="assets/img/portfolio/Animation.png" alt="..." />
-        </div>
-      </div>
-    </div>
+	          <div class="about-copy">
+	            <h3>Building accessible XR around human movement and ability</h3>
+	            <p>
+	              I am Dailyn, a CMU PhD candidate creating accessible, adaptive XR systems through biomechanics, wearable sensing, UX research, machine learning, and 3D design.
+	            </p>
+	            <p>
+	              I care about immersive technology that feels personal, expressive, and useful. Outside the lab, I bring that same curiosity to animation, photography, and travel.
+	            </p>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+	
+	    <!-- ========== ABOUT MODALS ========== -->
+		    <div class="modal fade" id="modalArtsCrafts" tabindex="-1" aria-labelledby="modalArtsCraftsLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content text-dark">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="modalArtsCraftsLabel">Arts + Crafts</h5>
+	            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	          </div>
+	          <div class="modal-body">
+	            In my off time, I knit, crochet, and make things by hand. Crafting gives me a slower, tactile way to explore color, pattern, texture, and patience outside of research and code.
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="modal fade" id="modalAfroLatina" tabindex="-1" aria-labelledby="modalAfroLatinaLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content text-dark">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="modalAfroLatinaLabel">Afro-Latina Researcher</h5>
+	            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	          </div>
+	          <div class="modal-body">
+	            As an Afro-Latina researcher, I care deeply about who gets represented in emerging technology and who gets to shape it. I want immersive systems to reflect diverse cultural identities, bodies, and lived experiences.
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 
     <div class="modal fade" id="modalAdventurer" tabindex="-1" aria-labelledby="modalAdventurerLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAdventurerLabel">Adventurer</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            I love exploring and taking on challenges that push my comfort zone — from research frontiers to literal freefalls.
-          </div>
-        </div>
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="modalAdventurerLabel">Adventure + Photography</h5>
+	            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	          </div>
+	          <div class="modal-body">
+	            I love exploring places, movement, and moments that push my perspective. Photography and adventure help me notice details, tell stories, and bring a more human sense of wonder into my research and design work.
+	          </div>
+	        </div>
       </div>
     </div>
 
     <div class="modal fade" id="modalPictures" tabindex="-1" aria-labelledby="modalPicturesLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalPicturesLabel">Pictures</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            I capture moments that inspire storytelling — whether through animation or interactive visual design.
-          </div>
-        </div>
+	      <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content text-dark">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="modalPicturesLabel">3D + Animation</h5>
+	            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	          </div>
+	          <div class="modal-body">
+	            I use 3D design, Blender, Unity, and animation as tools for research and storytelling. I like making technical ideas visible, playful, and easier to understand through interactive visuals.
+	          </div>
+	        </div>
       </div>
     </div>
 
@@ -11135,9 +11256,9 @@
             <h5 class="modal-title" id="modalDogMomLabel">Dog Mom</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            My dog keeps me grounded — the best research assistant and adventure buddy anyone could ask for.
-          </div>
+	          <div class="modal-body">
+	            My dog keeps me grounded and reminds me to step away from the screen. That balance matters to how I think, create, and stay connected to everyday life while working on complex research.
+	          </div>
         </div>
       </div>
     </div>
@@ -11152,41 +11273,42 @@
           <div class="divider-custom-line"></div>
         </div>
 
-        <!-- Outreach Bubble Map -->
-        <div class="outreach-bubble-map">
-          <!-- Center image circle -->
-          <div class="outreach-center-bubble">
-            <img src="assets/img/Outreach/Tree.png" alt="" aria-hidden="true" class="outreach-img" />
-          </div>
+        <div class="outreach-grid" aria-label="Outreach projects">
+          <button class="outreach-card" type="button" data-bs-toggle="modal" data-bs-target="#outreachModal1">
+            <img src="assets/img/Outreach/Bio2023.jpg" alt="Students exploring hand rigging and animation at Biomechanics Day 2023" />
+            <span class="outreach-card-body">
+              <span class="outreach-card-kicker">Biomechanics Day 2023</span>
+              <span class="outreach-card-title">Hand Rigging + Animation</span>
+              <span class="outreach-card-copy">Hands-on biomechanics and animation session for middle and high school students.</span>
+            </span>
+          </button>
 
-          <!-- Image + Text Bubbles -->
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal1" style="--angle: -226deg; --orbit: 88px;">
-            <div class="bubble-content">
-              <img src="assets/img/Outreach/1.png" width="600"> 
-              <!-- <span>Biomechanics 2023</span> -->
-            </div>
-          </div>
+          <button class="outreach-card" type="button" data-bs-toggle="modal" data-bs-target="#outreachModal2">
+            <img src="assets/img/Outreach/Bio2024.png" alt="Animated character outreach material for Biomechanics Day 2024" />
+            <span class="outreach-card-body">
+              <span class="outreach-card-kicker">Biomechanics Day 2024</span>
+              <span class="outreach-card-title">Animated Character Biomechanics</span>
+              <span class="outreach-card-copy">An interactive session connecting body movement, storytelling, and character animation.</span>
+            </span>
+          </button>
 
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal2" style="--angle: 434deg; --orbit: 70px;">
-            <div class="bubble-content">
-              <img src="assets/img/Outreach/2.png" alt="" aria-hidden="true" />
-              <!-- <span>Biomechanics 2024</span>-->
-            </div>
-          </div>
+          <button class="outreach-card" type="button" data-bs-toggle="modal" data-bs-target="#outreachModal3">
+            <img src="assets/img/Outreach/VROutreach.png" alt="VR outreach event preview" />
+            <span class="outreach-card-body">
+              <span class="outreach-card-kicker">Black History Month</span>
+              <span class="outreach-card-title">CMU MechE DEI VR Event</span>
+              <span class="outreach-card-copy">A shared VR experience and discussion space for reflection and community learning.</span>
+            </span>
+          </button>
 
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal3" style="--angle: 357deg; --orbit: -119px;">
-            <div class="bubble-content">
-              <img src="assets/img/Outreach/3.png" alt="" aria-hidden="true" />
-               <!--<span>VR Outreach 2024</span>-->
-            </div>
-          </div>
-
-          <div class="outreach-bubble" data-bs-toggle="modal" data-bs-target="#outreachModal4" style="--angle: -3deg; --orbit: -37px;">
-            <div class="bubble-content">
-              <img src="assets/img/Outreach/4.png" alt="" aria-hidden="true" />
-              <!--<span>Workshop 2025</span>-->
-            </div>
-          </div>
+          <button class="outreach-card" type="button" data-bs-toggle="modal" data-bs-target="#outreachModal4">
+            <img src="assets/img/Outreach/Mentorship.png" alt="Mentorship workshop illustration" />
+            <span class="outreach-card-body">
+              <span class="outreach-card-kicker">Workshop 2025</span>
+              <span class="outreach-card-title">Mentorship + Research Pathways</span>
+              <span class="outreach-card-copy">A workshop focused on guidance, access, and research pathways for emerging students.</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -11655,49 +11777,50 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-8 col-xl-7">
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-              <!-- Name -->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                <label for="name">Full name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-              </div>
-              <!-- Email -->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                <label for="email">Email address</label>
-                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-              </div>
-              <!-- Phone -->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                <label for="phone">Phone number</label>
-                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-              </div>
-              <!-- Message -->
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                <label for="message">Message</label>
-                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-              </div>
+	            <form id="contactForm" action="https://formsubmit.co/dailyndespradel@gmail.com" method="POST">
+	              <input type="hidden" name="_subject" value="New message from DailynDespradel.github.io" />
+	              <input type="hidden" name="_template" value="table" />
+	              <input type="hidden" name="_next" value="https://dailyndespradel.github.io/#contact" />
+	              <input type="hidden" name="_url" value="https://dailyndespradel.github.io/#contact" />
+	              <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
+	              <!-- Name -->
+	              <div class="form-floating mb-3">
+	                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required />
+	                <label for="name">Full name</label>
+	                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+	              </div>
+	              <!-- Email -->
+	              <div class="form-floating mb-3">
+	                <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" required />
+	                <label for="email">Email address</label>
+	                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+	                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+	              </div>
+	              <!-- Phone -->
+	              <div class="form-floating mb-3">
+	                <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890" />
+	                <label for="phone">Phone number</label>
+	              </div>
+	              <!-- Message -->
+	              <div class="form-floating mb-3">
+	                <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
+	                <label for="message">Message</label>
+	                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+	              </div>
 
               <!-- Success -->
               <div class="d-none" id="submitSuccessMessage">
                 <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-              </div>
+	                  <div class="fw-bolder">Message sent successfully!</div>
+	                </div>
+	              </div>
               <!-- Error -->
               <div class="d-none" id="submitErrorMessage">
                 <div class="text-center text-danger mb-3">Error sending message!</div>
               </div>
 
               <!-- Submit -->
-              <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+	              <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
             </form>
           </div>
         </div>
@@ -12090,7 +12213,6 @@
     <!-- ========== SCRIPTS ========== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
     <!-- ========== CUSTOM JS (Unified Carousels) ========== -->
     <script>
